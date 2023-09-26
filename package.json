@@ -1,11 +1,14 @@
 {
-  "name": "lasvegashellcats",
+  "name": "car-rental-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --mode local",
+    "serve:api": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:fix": "vue-cli-service lint --fix",
+    "deploy": "deploy.bat"
   },
   "dependencies": {
     "@mdi/font": "^7.2.96",
