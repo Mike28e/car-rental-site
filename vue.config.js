@@ -6,4 +6,3 @@ module.exports = defineConfig({
   publicPath: "/"
   // publicPath: process.env.NODE_ENV === "production" ? "/car-rental-site/" : "/",
 })
-gi
