@@ -6,11 +6,11 @@
           <v-col cols="6" sm="6">
             <v-card color="transparent" elevation="0" dark>
               <v-card-title
-                class="text-overline justify-center text-center"
+                class="text-overline justify-center text-center black--text"
                 style="word-break: break-word"
                 >Challenger SRT Hellcat
               </v-card-title>
-              <v-card-text class="text-center justify-center">
+              <v-card-text class="text-center justify-center black--text">
                 2-Door
                 <br />Horsepower: 707 hp <br />Torque: 650 lb-ft <br />0-60 mph:
                 3.9 seconds <br />1/4 Mile: 11.9 @ 124 mph <br />Top Speed: 199
@@ -47,11 +47,11 @@
           <v-col cols="6" sm="6">
             <v-card color="transparent" elevation="0" dark>
               <v-card-title
-                class="text-overline justify-center text-center"
+                class="text-overline justify-center text-center black--text"
                 style="word-break: break-word"
                 >Charger SRT Hellcat
               </v-card-title>
-              <v-card-text class="text-center justify-center">
+              <v-card-text class="text-center justify-center black--text">
                 2-Door
                 <br />Horsepower: 707 hp <br />Torque: 650 lb-ft <br />0-60 mph:
                 3.9 seconds <br />1/4 Mile: 11.9 @ 124 mph <br />Top Speed: 199

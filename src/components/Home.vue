@@ -2,11 +2,11 @@
   <div>
     <v-img
       class="bg-white mt-n16"
-      dark
-      src="../assets/hellcat_cover3.jpg"
+      src="../assets/mainbg2.jpg"
       cover
-      aspect-ratio="16/9"
+      aspect-ratio=""
       height="100%"
+      max-height="700px"
     >
       <v-custom-app-bar
         :inverted-scroll="false"
@@ -17,15 +17,15 @@
           <v-col>
             <v-sheet
               class="d-flex align-end"
-              min-height="550px"
+              min-height="200px"
               color="transparent"
               elevation="0"
             >
               <v-card-title
-                class="display-2 font-weight-light pb-0 px-0"
+                class="display-2 font-weight-thin pb-0 px-0 hide-on-phone"
                 style="line-height: 1.2; word-break: break-word"
               >
-                Looking to Rent a Dodge Hellcat?
+                Looking to Rent a Car?
                 <!-- <br />Send a Request -->
               </v-card-title>
             </v-sheet>
@@ -39,8 +39,25 @@
             </v-sheet> -->
           </v-col>
         </v-row>
-        <v-btn large outlined rounded class="my-4 mr-8">Book Online</v-btn>
-        <v-btn large outlined rounded class="my-4">Contact Us</v-btn>
+        <v-row
+          ><v-col
+            class="d-flex justify-center justify-sm-center justify-md-start justify-lg-start"
+          >
+            <v-btn
+              large
+              class="my-4 mr-8 blue-grey--text text--darken-2"
+              color=""
+              @click="openVehicleDialog(null)"
+              >Book Now</v-btn
+            >
+            <v-btn
+              large
+              class="my-4 blue-grey--text text--darken-2"
+              @click="scrollTo('#contact')"
+              >Contact Us</v-btn
+            >
+          </v-col>
+        </v-row>
 
         <!-- <v-row>
           <v-col sm="2" cols="12">
@@ -64,48 +81,8 @@
         </v-row> -->
       </v-container>
     </v-img>
-    <v-sheet height="100%" color="#263238" id="#about" class="py-8">
-      <v-container>
-        <v-row>
-          <v-col>
-            <v-card
-              elevation="0"
-              class="fadeIn"
-              color="transparent"
-              dark
-              v-scrollanimation
-            >
-              <v-card-text
-                class="display-2 white--text font-weight-thin"
-                style="line-height: 1.1"
-              >
-                Experience the thrill of true American muscle in a Dodge Hellcat
-              </v-card-text>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card
-              elevation="0"
-              class="fadeIn"
-              color="transparent"
-              dark
-              v-scrollanimation
-            >
-              <v-card-text class="text-subtitle-1">
-                Welcome to Las Vegas Hellcats, where you can immerse yourself in
-                the exhilarating world of true American muscle. Get ready to
-                unleash the raw power and commanding presence of a Dodge
-                Hellcat, as you embark on an unforgettable driving experience.
-                Feel the adrenaline surge through your veins as you grip the
-                wheel and unleash the beast under the hood.
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-      <v-vehicle-spec-cards></v-vehicle-spec-cards>
-    </v-sheet>
-    <v-sheet height="100%" color="#37474F" id="#rentals" class="py-6">
+
+    <v-sheet height="100%" color="#37474F" id="#rentals" class="py-6 parallax">
       <v-container>
         <v-row>
           <v-col cols="12" sm="9">
@@ -116,19 +93,23 @@
               dark
               v-scrollanimation
             >
-              <v-card-text class="display-2 white--text font-weight-thin">
-                Explore our Fleet
+              <v-card-text class="display-1 black--text font-weight-thin">
+                Las Vegas Fleet
               </v-card-text>
             </v-card>
           </v-col>
         </v-row>
         <v-row class="my-4">
-          <v-col cols="12" sm="4" v-for="(car, idx) in vehicles" :key="idx">
+          <v-col
+            cols="12"
+            sm="6"
+            md="4"
+            v-for="(car, idx) in vehicles"
+            :key="idx"
+          >
             <v-card
-              color="blue-grey"
+              color="transparent"
               class="mt-2 darken-2 slideFromBottom"
-              tile
-              dark
               v-scrollanimation
             >
               <v-img
@@ -139,22 +120,30 @@
               ></v-img>
 
               <v-card-title
-                class="text-overline justify-center"
+                class="text-overline pb-0 mb-0"
                 style="word-break: break-word"
                 >{{ car.name }}
               </v-card-title>
-              <v-card-text class="text-center justify-center">
-                <!-- Horsepower: 707 hp
+              <!-- <v-card-text class="text-center justify-center">
+                Horsepower: 707 hp
                 <br />Torque: 650 lb-ft <br />0-60 mph: 3.9 seconds <br />1/4
                 Mile: 11.9 @ 124 mph <br />Top Speed: 199 mph <br />Weight:
-                4,469lbs -->
-              </v-card-text>
-              <v-card-actions class="px-6">
-                <v-card-text class="pa-0 ma-0 body-1"
-                  ><strong class="">$299 / per day</strong></v-card-text
-                >
+                4,469lbs
+              </v-card-text> -->
+              <v-card-actions class="">
+                <!-- <v-card-text class="pa-0 ma-0 pl-2 body-1"
+                  ><strong class=""
+                    >${{ car.price }} / per day</strong
+                  ></v-card-text
+                > -->
                 <v-spacer></v-spacer>
-                <v-btn outlined prepend-icon="mdi-plus">Rent It</v-btn>
+                <v-btn
+                  text
+                  prepend-icon="mdi-plus"
+                  color="blue darken-2"
+                  @click="openVehicleDialog(car.id)"
+                  >Reserve</v-btn
+                >
               </v-card-actions>
             </v-card>
           </v-col>
@@ -162,27 +151,94 @@
       </v-container>
     </v-sheet>
     <v-sheet height="100%" class="pa-0 ma-0" color="#37474F">
-      <!-- <v-container fluid class="pa-0 ma-0"> -->
-      <!-- <v-parallax
-          src="../assets/Hellcat_Orange_2.0_shifter.jpeg"
-          height="400"
-        ></v-parallax> -->
       <v-img
         class="pa-0 ma-0"
-        dark
-        src="../assets/Hellcat_Orange_2.0_shifter.jpeg"
+        src="../assets/banner2.jpg"
         cover
         aspect-ratio="16/9"
-        height="400px"
+        height="350px"
       ></v-img>
-      <!-- </v-container> -->
     </v-sheet>
-    <v-sheet height="100%" class="" color="#263238" id="#testimonials">
+    <v-sheet height="100%" class="parallax" color="#263238" id="#vegas">
       <v-container>
         <v-row>
           <v-col cols="12" sm="9">
-            <v-card elevation="0" class="my-12" color="transparent" dark>
-              <v-card-text class="display-2 white--text font-weight-thin">
+            <v-card elevation="0" class="my-4" color="transparent" dark>
+              <v-card-text class="display-2 black--text font-weight-thin">
+                Explore what Las Vegas has to offer
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-sheet elevation="0" color="transparent" class="pb-6">
+              <v-row>
+                <v-col
+                  v-for="hotspot in vegasHotSpots"
+                  :key="hotspot.name"
+                  class="d-flex child-flex justify-center align-center"
+                  cols="12"
+                  md="6"
+                  sm="12"
+                >
+                  <v-card
+                    class=""
+                    style="background-color: transparent; overflow: hidden"
+                    max-height="100%"
+                    max-width="500px"
+                  >
+                    <v-img
+                      :src="hotspot.image"
+                      aspect-ratio="1"
+                      class="grey lighten-2"
+                      max-height="400px"
+                      max-width="500px"
+                    >
+                      <template v-slot:placeholder>
+                        <v-row
+                          class="fill-height ma-0"
+                          align="center"
+                          justify="center"
+                        >
+                          <v-progress-circular
+                            indeterminate
+                            color="grey lighten-5"
+                          ></v-progress-circular>
+                        </v-row>
+                      </template>
+                    </v-img>
+                    <v-card-title
+                      class="text-overline pb-0 mb-0"
+                      style="word-break: break-word"
+                      >{{ hotspot.name }}
+                    </v-card-title>
+                    <v-card-text class="">
+                      {{ hotspot.description }}
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
+    <!-- <v-sheet height="100%" class="pa-0 ma-0" color="#37474F">
+      <v-img
+        class="pa-0 ma-0"
+        src="../assets/banner3.jpg"
+        cover
+        aspect-ratio="16/9"
+        height="350px"
+      ></v-img>
+    </v-sheet>
+    <v-sheet height="100%" class="parallax" color="#263238" id="#testimonials">
+      <v-container>
+        <v-row>
+          <v-col cols="12" sm="9">
+            <v-card elevation="0" class="my-4" color="transparent" dark>
+              <v-card-text class="display-2 black--text font-weight-thin">
                 We strive to meet the needs of our customers and we value their
                 opinions about our work
               </v-card-text>
@@ -191,23 +247,29 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-card elevation="0" color="transparent" dark>
-              <v-review-carousel></v-review-carousel>
+            <v-card elevation="0" color="transparent" dark class="pb-6">
               <div
                 class="elfsight-app-bdcb97ff-5ae0-42a7-b273-8040da025db6"
+                style="background: rgba(255, 255, 255, 0)"
               ></div>
             </v-card>
           </v-col>
         </v-row>
       </v-container>
-    </v-sheet>
-    <v-sheet class="" color="#37474F" id="#contact">
+    </v-sheet> -->
+    <v-sheet class="background1" color="#37474F" id="#contact">
       <v-container style="max-width: 100% !important">
         <v-row>
-          <v-col class="" cols="12" sm="6">
-            <v-card class="ma-12" tile elevation="5" color="#263238" dark>
+          <v-col cols="0" md="3" sm="2"></v-col>
+          <v-col class="" cols="12" md="6" sm="8">
+            <v-card
+              class="ma-12"
+              tile
+              elevation="5"
+              color="rgba(255,255,255,0.6)"
+            >
               <v-card-text
-                class="text-center pt-12 font-weight-bold white--text"
+                class="text-center text-h2 pt-12 black--text"
                 style="
                   font-size: 48px !important;
                   word-break: break-word;
@@ -217,56 +279,68 @@
                 CONTACT US
               </v-card-text>
               <v-card-text
-                class="text-center pt-8 pb-4 font-weight-medium"
+                class="text-center pt-8 pb-4 font-weight-medium black--text"
                 style="font-size: 16px !important"
               >
-                +1 (702) 123-4567<br />
-                lanierluxuryrentals@gmail.com
+                <!-- +1 (248) 457-5226<br /> -->
+                DyceRentals@gmail.com
               </v-card-text>
-              <v-card-text class="text-center pb-8 font-weight-medium">
-                <v-btn icon x-large><v-icon>mdi-instagram</v-icon></v-btn>
-                <v-btn icon x-large><v-icon>mdi-twitter</v-icon></v-btn>
-                <v-btn icon x-large><v-icon>mdi-facebook</v-icon></v-btn>
-                <v-btn icon x-large><v-icon>mdi-email-outline</v-icon></v-btn>
+              <v-card-text
+                class="text-center pb-8 font-weight-medium black--text"
+              >
+                <v-btn
+                  icon
+                  x-large
+                  color="black"
+                  href="https://www.instagram.com/dycerentals"
+                  target="_blank"
+                  ><v-icon>mdi-instagram</v-icon></v-btn
+                >
+                <v-btn
+                  icon
+                  x-large
+                  color="black"
+                  href="https://www.twitter.com/dycerentals"
+                  target="_blank"
+                  ><v-icon>mdi-twitter</v-icon></v-btn
+                >
+                <v-btn
+                  icon
+                  x-large
+                  color="black"
+                  href="https://www.facebook.com/dycerentals"
+                  target="_blank"
+                  ><v-icon>mdi-facebook</v-icon></v-btn
+                >
+                <v-btn
+                  icon
+                  x-large
+                  color="black"
+                  href="mailto:DyceRentals@gmail.com"
+                  ><v-icon>mdi-email-outline</v-icon></v-btn
+                >
               </v-card-text>
             </v-card>
           </v-col>
-          <v-col class="pa-0" cols="12" sm="6">
-            <v-card>
-              <div style="position: relative; height: 600px">
-                <iframe
-                  :src="googleUrl"
-                  height="600"
-                  width="100%"
-                  style="
-                    border: 0;
-                    filter: grayscale(1);
-                    min-height: 600;
-                    position: absolute;
-                  "
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </v-card>
-          </v-col>
+          <v-col cols="0" md="3" sm="2"></v-col>
         </v-row>
       </v-container>
     </v-sheet>
+    <v-booking-dialog
+      v-model="bookDialog"
+      :selectedVehicleId="bookSelectedVehicleId"
+    ></v-booking-dialog>
   </div>
 </template>
 
 <script>
 import vCustomAppBar from "./AppBar.vue";
-import vVehicleSpecCards from "./VehicleSpecCards.vue";
-import vReviewCarousel from "./ReviewCarousel.vue";
+import vBookingDialog from "./BookingDialog.vue";
 export default {
-  name: "HelloWorld",
+  name: "MainPage",
   components: {
     "v-custom-app-bar": vCustomAppBar,
-    "v-vehicle-spec-cards": vVehicleSpecCards,
-    "v-review-carousel": vReviewCarousel,
+    "v-booking-dialog": vBookingDialog,
   },
   mounted() {
     let elfsightScript = document.createElement("script");
@@ -277,15 +351,60 @@ export default {
     document.head.appendChild(elfsightScript);
   },
   computed: {
-    googleUrl() {
-      return `https://www.google.com/maps/embed/v1/search?q=lanier%20luxury%20rentals&key=${process.env.VUE_APP_KEY}&center=36.107375,-115.174747&zoom=17`;
-    },
+    // googleUrl() {
+    //   return `https://www.google.com/maps/embed/v1/search?q=lanier%20luxury%20rentals&key=${process.env.VUE_APP_KEY}&center=36.107375,-115.174747&zoom=17`;
+    // },
   },
   data: () => ({
+    bookDialog: false,
+    bookSelectedVehicleId: null,
     vehicles: [
       {
-        image: require("@/assets/Hellcat_Black_3.0.jpeg"),
-        name: "Challenger SRT Hellcat",
+        id: 1,
+        image: require("@/assets/porsche3.jpg"),
+        name: "Porsche 911 (992)",
+        specs: [
+          "Horsepower: 707 hp",
+          "Torque: 650 lb-ft",
+          "0-60 mph: 3.9 seconds",
+          "1/4 Mile: 11.9 @ 124 mph",
+          "Top Speed: 199 mph",
+          "Weight: 4,469lbs",
+        ],
+        price: "399",
+      },
+      {
+        id: 2,
+        image: require("@/assets/lambo1.jpg"),
+        name: "Lamborghini Huracan",
+        specs: [
+          "Horsepower: 707 hp",
+          "Torque: 650 lb-ft",
+          "0-60 mph: 3.9 seconds",
+          "1/4 Mile: 11.9 @ 124 mph",
+          "Top Speed: 199 mph",
+          "Weight: 4,469lbs",
+        ],
+        price: "999",
+      },
+      {
+        id: 3,
+        image: require("@/assets/charger1.jpg"),
+        name: "Dodge Charger SRT Hellcat",
+        specs: [
+          "Horsepower: 707 hp",
+          "Torque: 650 lb-ft",
+          "0-60 mph: 3.9 seconds",
+          "1/4 Mile: 11.9 @ 124 mph",
+          "Top Speed: 199 mph",
+          "Weight: 4,469lbs",
+        ],
+        price: "349",
+      },
+      {
+        id: 5,
+        image: require("@/assets/whitei8-1.jpg"),
+        name: "BMW i8",
         specs: [
           "Horsepower: 707 hp",
           "Torque: 650 lb-ft",
@@ -297,8 +416,9 @@ export default {
         price: "299",
       },
       {
-        image: require("@/assets/Hellcat_Orange_2.0.jpeg"),
-        name: "Challenger SRT Hellcat",
+        id: 4,
+        image: require("@/assets/greyi8-1.jpg"),
+        name: "BMW i8",
         specs: [
           "Horsepower: 707 hp",
           "Torque: 650 lb-ft",
@@ -310,8 +430,9 @@ export default {
         price: "299",
       },
       {
-        image: require("@/assets/DSC02974.jpg"),
-        name: "Challenger SRT Hellcat",
+        id: 6,
+        image: require("@/assets/mitsubishi1.jpg"),
+        name: "Mitsubishi Outlander",
         specs: [
           "Horsepower: 707 hp",
           "Torque: 650 lb-ft",
@@ -320,11 +441,12 @@ export default {
           "Top Speed: 199 mph",
           "Weight: 4,469lbs",
         ],
-        price: "299",
+        price: "99",
       },
       {
-        image: require("@/assets/hellcat_red.jpeg"),
-        name: "Challenger SRT Hellcat",
+        id: 7,
+        image: require("@/assets/jeep1.jpg"),
+        name: "Jeep Grand Cherokee",
         specs: [
           "Horsepower: 707 hp",
           "Torque: 650 lb-ft",
@@ -333,10 +455,59 @@ export default {
           "Top Speed: 199 mph",
           "Weight: 4,469lbs",
         ],
-        price: "299",
+        price: "99",
       },
     ],
+    vegasHotSpots: [
+      {
+        image: require("@/assets/redrock1.jpg"),
+        name: "Red Rock Canyon",
+        description:
+          "This beautiful natural area is located just a short drive west of Las Vegas. The Scenic Loop is a 13-mile drive that offers stunning views of the red rock formations. A must-do for anyone visiting Las Vegas.",
+      },
+      {
+        image: require("@/assets/hooverdam1.jpg"),
+        name: "Hoover Dam",
+        description:
+          "Just a short drive from Las Vegas, Hoover Dam is an engineering marvel that's worth a visit. The winding roads and stunning views make for an exciting and memorable drive.",
+      },
+      {
+        image: require("@/assets/valleyoffire1.jpg"),
+        name: "Valley of Fire",
+        description:
+          "This stunning park is located about an hour from Las Vegas and offers incredible views of red rock formations. Driving through the park is a great way to enjoy the scenery and the open road.",
+      },
+      {
+        image: require("@/assets/lakemead1.jpg"),
+        name: "Lake Mead",
+        description:
+          "If you're looking for a beautiful spot to enjoy one of our cars, Lake Mead is a great option. The winding roads and scenic views make for a thrilling drive, and there are plenty of places to stop and enjoy the water.",
+      },
+      // {
+      //   image: require("@/assets/lvmotorspeedway1.jpg"),
+      //   name: "Las Vegas Motor Speedway",
+      //   description: "",
+      // },
+      // {
+      //   image: require("@/assets/neonmuseum1.jpg"),
+      //   name: "Neon Museum",
+      //   description: "",
+      // },
+    ],
   }),
+  methods: {
+    scrollTo(id) {
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    },
+    openVehicleDialog(selectedVehicleId) {
+      this.bookSelectedVehicleId = selectedVehicleId;
+      this.bookDialog = true;
+    },
+  },
 };
 </script>
 
@@ -351,6 +522,9 @@ export default {
   .container {
     max-width: 480px;
   }
+  .hide-on-phone {
+    display: none;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 481px to 768px) */
@@ -358,19 +532,25 @@ export default {
   .container {
     max-width: 768px;
   }
+  .hide-on-phone {
+    display: none;
+  }
 }
 
 /* Medium devices (landscape tablets, 769px to 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .container {
-    max-width: 769px;
+    max-width: 1024px;
+  }
+  .hide-on-phone {
+    display: none;
   }
 }
 
 /* Large devices (desktops, 1025px and up) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   .container {
-    max-width: 1025px;
+    max-width: 1200px;
   }
 }
 
@@ -415,5 +595,30 @@ export default {
 .enter.slideFromRight {
   opacity: 1;
   transform: translateX(0px);
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("https://images.unsplash.com/photo-1619252584172-a83a949b6efd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.background1 {
+  /* The image used */
+  background-image: url("../assets/pexels-pixabay-3.jpg");
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
