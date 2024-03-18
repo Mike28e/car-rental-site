@@ -308,7 +308,7 @@
                   icon
                   x-large
                   color="black"
-                  href="https://www.facebook.com/dycerentals"
+                  href="https://www.facebook.com/people/Dyce-Rentals/61557322134299/"
                   target="_blank"
                   ><v-icon>mdi-facebook</v-icon></v-btn
                 >
