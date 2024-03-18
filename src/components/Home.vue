@@ -112,12 +112,25 @@
               class="mt-2 darken-2 slideFromBottom"
               v-scrollanimation
             >
-              <v-img
-                class=""
-                dark
-                :src="car.image"
-                :aspect-ratio="16 / 9"
-              ></v-img>
+              <v-hover>
+                <v-card
+                  flat
+                  slot-scope="{ hover }"
+                  :elevation="hover ? 12 : 0"
+                  style="
+                    border-bottom-right-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                  "
+                >
+                  <v-img
+                    class="cursor-pointer"
+                    dark
+                    :src="car.image"
+                    :aspect-ratio="16 / 9"
+                    v-on:click="openVehicleGalleryDialog(car.id)"
+                  ></v-img>
+                </v-card>
+              </v-hover>
 
               <v-card-title
                 class="text-overline pb-0 mb-0"
@@ -330,17 +343,24 @@
       v-model="bookDialog"
       :selectedVehicleId="bookSelectedVehicleId"
     ></v-booking-dialog>
+    <v-vehicle-gallery-dialog
+      v-model="vehicleGalleryDialog"
+      :title="vehicleGalleryTitle"
+      :images="vehicleGalleryImages"
+    ></v-vehicle-gallery-dialog>
   </div>
 </template>
 
 <script>
 import vCustomAppBar from "./AppBar.vue";
 import vBookingDialog from "./BookingDialog.vue";
+import vVehicleGalleryDialog from "./VehicleGalleryDialog.vue";
 export default {
   name: "MainPage",
   components: {
     "v-custom-app-bar": vCustomAppBar,
     "v-booking-dialog": vBookingDialog,
+    "v-vehicle-gallery-dialog": vVehicleGalleryDialog,
   },
   mounted() {
     let elfsightScript = document.createElement("script");
@@ -358,104 +378,125 @@ export default {
   data: () => ({
     bookDialog: false,
     bookSelectedVehicleId: null,
+    vehicleGalleryDialog: false,
+    vehicleGalleryTitle: null,
+    vehicleGalleryImages: [],
     vehicles: [
       {
         id: 1,
         image: require("@/assets/porsche3.jpg"),
         name: "Porsche 911 (992)",
-        specs: [
-          "Horsepower: 707 hp",
-          "Torque: 650 lb-ft",
-          "0-60 mph: 3.9 seconds",
-          "1/4 Mile: 11.9 @ 124 mph",
-          "Top Speed: 199 mph",
-          "Weight: 4,469lbs",
-        ],
+        specs: [],
         price: "399",
+        images: [
+          require("../assets/porsche_911/Porsche_Gallery1.jpg"),
+          require("../assets/porsche_911/Porsche_Gallery2.jpg"),
+          require("../assets/porsche_911/Porsche_Gallery3.jpg"),
+          require("../assets/porsche_911/Porsche_Gallery4.jpg"),
+          require("../assets/porsche_911/Porsche_Gallery5.jpg"),
+          require("../assets/porsche_911/Porsche_Gallery6.jpg"),
+          require("../assets/porsche_911/Porsche_Gallery7.jpg"),
+          require("../assets/porsche_911/Porsche_Gallery8.jpg"),
+        ],
       },
       {
         id: 2,
         image: require("@/assets/lambo1.jpg"),
         name: "Lamborghini Huracan",
-        specs: [
-          "Horsepower: 707 hp",
-          "Torque: 650 lb-ft",
-          "0-60 mph: 3.9 seconds",
-          "1/4 Mile: 11.9 @ 124 mph",
-          "Top Speed: 199 mph",
-          "Weight: 4,469lbs",
-        ],
+        specs: [],
         price: "999",
+        images: [
+          require("../assets/lamborghini_huracan/Huracan_Gallery1.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery2.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery3.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery4.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery5.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery6.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery7.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery8.jpg"),
+          require("../assets/lamborghini_huracan/Huracan_Gallery9.jpg"),
+        ],
       },
       {
         id: 3,
         image: require("@/assets/charger1.jpg"),
         name: "Dodge Charger SRT Hellcat",
-        specs: [
-          "Horsepower: 707 hp",
-          "Torque: 650 lb-ft",
-          "0-60 mph: 3.9 seconds",
-          "1/4 Mile: 11.9 @ 124 mph",
-          "Top Speed: 199 mph",
-          "Weight: 4,469lbs",
-        ],
+        specs: [],
         price: "349",
+        images: [
+          require("../assets/dodge_charger/Charger_Gallery1.jpg"),
+          require("../assets/dodge_charger/Charger_Gallery2.jpg"),
+          require("../assets/dodge_charger/Charger_Gallery3.jpg"),
+          require("../assets/dodge_charger/Charger_Gallery4.jpg"),
+        ],
       },
       {
         id: 5,
         image: require("@/assets/whitei8-1.jpg"),
         name: "BMW i8",
-        specs: [
-          "Horsepower: 707 hp",
-          "Torque: 650 lb-ft",
-          "0-60 mph: 3.9 seconds",
-          "1/4 Mile: 11.9 @ 124 mph",
-          "Top Speed: 199 mph",
-          "Weight: 4,469lbs",
-        ],
+        specs: [],
         price: "299",
+        images: [
+          require("../assets/bmw_i8_white/BmwWhite_Gallery1.jpg"),
+          require("../assets/bmw_i8_white/BmwWhite_Gallery2.jpg"),
+          require("../assets/bmw_i8_white/BmwWhite_Gallery3.jpg"),
+          require("../assets/bmw_i8_white/BmwWhite_Gallery4.jpg"),
+          require("../assets/bmw_i8_white/BmwWhite_Gallery5.jpg"),
+          require("../assets/bmw_i8_white/BmwWhite_Gallery6.jpg"),
+          require("../assets/bmw_i8_white/BmwWhite_Gallery7.jpg"),
+        ],
       },
       {
         id: 4,
         image: require("@/assets/greyi8-1.jpg"),
         name: "BMW i8",
-        specs: [
-          "Horsepower: 707 hp",
-          "Torque: 650 lb-ft",
-          "0-60 mph: 3.9 seconds",
-          "1/4 Mile: 11.9 @ 124 mph",
-          "Top Speed: 199 mph",
-          "Weight: 4,469lbs",
-        ],
+        specs: [],
         price: "299",
+        images: [
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery1.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery2.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery3.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery4.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery5.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery6.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery7.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery8.jpg"),
+          require("../assets/bmw_i8_grey/BmwGrey_Gallery9.jpg"),
+        ],
       },
       {
         id: 6,
         image: require("@/assets/mitsubishi1.jpg"),
         name: "Mitsubishi Outlander",
-        specs: [
-          "Horsepower: 707 hp",
-          "Torque: 650 lb-ft",
-          "0-60 mph: 3.9 seconds",
-          "1/4 Mile: 11.9 @ 124 mph",
-          "Top Speed: 199 mph",
-          "Weight: 4,469lbs",
-        ],
+        specs: [],
         price: "99",
+        images: [
+          require("../assets/mitsubishi_outlander/Outlander_Gallery1.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery2.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery3.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery4.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery5.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery6.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery7.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery8.jpg"),
+          require("../assets/mitsubishi_outlander/Outlander_Gallery9.jpg"),
+        ],
       },
       {
         id: 7,
         image: require("@/assets/jeep1.jpg"),
         name: "Jeep Grand Cherokee",
-        specs: [
-          "Horsepower: 707 hp",
-          "Torque: 650 lb-ft",
-          "0-60 mph: 3.9 seconds",
-          "1/4 Mile: 11.9 @ 124 mph",
-          "Top Speed: 199 mph",
-          "Weight: 4,469lbs",
-        ],
+        specs: [],
         price: "99",
+        images: [
+          require("../assets/jeep_grand_cherokee/Jeep_Gallery1.jpg"),
+          require("../assets/jeep_grand_cherokee/Jeep_Gallery2.jpg"),
+          require("../assets/jeep_grand_cherokee/Jeep_Gallery3.jpg"),
+          require("../assets/jeep_grand_cherokee/Jeep_Gallery4.jpg"),
+          require("../assets/jeep_grand_cherokee/Jeep_Gallery5.jpg"),
+          require("../assets/jeep_grand_cherokee/Jeep_Gallery6.jpg"),
+          require("../assets/jeep_grand_cherokee/Jeep_Gallery7.jpg"),
+        ],
       },
     ],
     vegasHotSpots: [
@@ -506,6 +547,17 @@ export default {
     openVehicleDialog(selectedVehicleId) {
       this.bookSelectedVehicleId = selectedVehicleId;
       this.bookDialog = true;
+    },
+    openVehicleGalleryDialog(selectedVehicleId) {
+      var vehicle = this.getVehicle(selectedVehicleId);
+      if (vehicle != null) {
+        this.vehicleGalleryTitle = vehicle.name;
+        this.vehicleGalleryImages = vehicle.images;
+        this.vehicleGalleryDialog = true;
+      }
+    },
+    getVehicle(id) {
+      return id != null ? this.vehicles.find((v) => v.id == id) : null;
     },
   },
 };
@@ -620,5 +672,8 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 </style>
