@@ -359,8 +359,13 @@ export default {
   name: "MainPage",
   metaInfo: {
     title: "Dyce Rentals - Las Vegas Car Rentals",
-    description:
-      "Discover the thrill of the Las Vegas strip in style with Dyce Rentals. Cruise the city in luxury or explore the desert in comfort. Book now and experience Las Vegas like never before!",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Discover the thrill of the Las Vegas strip in style with Dyce Rentals. Cruise the city in luxury or explore the desert in comfort. Book now and experience Las Vegas like never before!",
+      },
+    ],
     htmlAttrs: {
       lang: "en",
     },
