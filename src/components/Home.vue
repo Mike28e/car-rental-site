@@ -366,6 +366,7 @@ export default {
           "Discover the thrill of the Las Vegas strip in style with Dyce Rentals. Cruise the city in luxury or explore the desert in comfort. Book now and experience Las Vegas like never before!",
       },
     ],
+    link: [{ rel: "icon", href: "../assets/icons8-dice-90.png" }],
     htmlAttrs: {
       lang: "en",
     },
