@@ -49,7 +49,7 @@
 
 <script>
 import vCustomAppBar from "./components/AppBar.vue";
-import Home from "./components/Home";
+import Home from "./views/Home";
 
 export default {
   name: "App",

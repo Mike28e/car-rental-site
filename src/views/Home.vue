@@ -352,9 +352,9 @@
 </template>
 
 <script>
-import vCustomAppBar from "./AppBar.vue";
-import vBookingDialog from "./BookingDialog.vue";
-import vVehicleGalleryDialog from "./VehicleGalleryDialog.vue";
+import vCustomAppBar from "../components/AppBar.vue";
+import vBookingDialog from "../components/BookingDialog.vue";
+import vVehicleGalleryDialog from "../components/VehicleGalleryDialog.vue";
 export default {
   name: "MainPage",
   metaInfo: {
