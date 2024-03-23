@@ -3,7 +3,7 @@
     <v-custom-app-bar :inverted-scroll="true" color=""></v-custom-app-bar>
 
     <v-main>
-      <Home />
+      <router-view />
     </v-main>
     <v-footer class="d-flex flex-column" dark color="#36454F">
       <div class="d-flex w-100 align-center px-4">
@@ -35,7 +35,7 @@
 
 <script>
 import vCustomAppBar from "./components/AppBar.vue";
-import Home from "./views/Home";
+// import Home from "./views/Home";
 import socialData from "./data/socials.js";
 
 export default {
@@ -43,7 +43,7 @@ export default {
 
   components: {
     "v-custom-app-bar": vCustomAppBar,
-    Home,
+    // Home,
   },
 
   data() {
@@ -64,9 +64,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-@import "./styles/media.css";
-@import "./styles/transitions.css";
-@import "./styles/cursors.css";
-</style>

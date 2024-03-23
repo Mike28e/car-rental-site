@@ -23,7 +23,7 @@
       <v-spacer></v-spacer>
 
       <span>
-        <v-btn text class="subtitle-1" @click="scrollTo('#home')">
+        <v-btn text class="subtitle-1" to="/" @click="scrollTo('#home')">
           <span class="mr-2" align="center">Home</span>
         </v-btn>
         <template v-if="isMobile">
@@ -39,6 +39,7 @@
               <v-list-item
                 v-for="item in menuItems"
                 :key="item.title"
+                :to="item.link"
                 @click="scrollTo(item.id)"
               >
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -53,6 +54,7 @@
             v-for="item in menuItems"
             :key="item.title"
             text
+            :to="item.link"
             class="subtitle-1"
             @click="scrollTo(item.id)"
           >
@@ -91,9 +93,9 @@ export default {
     return {
       menuItems: [
         // { title: "About Us", id: "#about" },
-        { title: "Rentals", id: "#rentals" },
+        { title: "Rentals", id: "#rentals", link: "/#rentals" },
         // { title: "Testimonials", id: "#testimonials" },
-        { title: "Contact", id: "#contact" },
+        { title: "Contact", id: "#contact", link: "/#contact" },
       ],
       socials: socialData,
     };

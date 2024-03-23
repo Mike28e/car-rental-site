@@ -150,20 +150,20 @@
                   ></v-card-text
                 > -->
 
-                <!-- <v-btn
-                  text
-                  prepend-icon="mdi-plus"
-                  color="grey darken-2"
-                  to="/fleet"
-                  >Details</v-btn
-                > -->
-                <v-spacer></v-spacer>
                 <v-btn
                   text
                   prepend-icon="mdi-plus"
                   color="blue darken-2"
                   @click="openVehicleDialog(car.id)"
                   >Reserve</v-btn
+                >
+                <v-spacer></v-spacer>
+                <v-btn
+                  text
+                  prepend-icon="mdi-plus"
+                  color="grey darken-2"
+                  to="/fleet"
+                  >Details</v-btn
                 >
               </v-card-actions>
             </v-card>
@@ -374,12 +374,20 @@ export default {
     "v-vehicle-gallery-dialog": vVehicleGalleryDialog,
   },
   mounted() {
-    let elfsightScript = document.createElement("script");
-    elfsightScript.setAttribute(
-      "src",
-      "https://apps.elfsight.com/p/platform.js"
-    );
-    document.head.appendChild(elfsightScript);
+    if (this.$router.currentRoute["hash"]) {
+      this.scrollTo(this.$router.currentRoute["hash"]);
+    }
+
+    // if (this.$router.currentRoute["hash"]) {
+    //   Vue.use(VueScrollTo);
+    //   VueScrollTo.scrollTo(this.$router.currentRoute["hash"], 500);
+    // }
+    // let elfsightScript = document.createElement("script");
+    // elfsightScript.setAttribute(
+    //   "src",
+    //   "https://apps.elfsight.com/p/platform.js"
+    // );
+    // document.head.appendChild(elfsightScript);
   },
   computed: {
     // googleUrl() {

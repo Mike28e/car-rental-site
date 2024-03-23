@@ -7,6 +7,12 @@ import router from "./router";
 import ScrollAnimation from './directives/scrollanimation';
 import { Crisp } from "crisp-sdk-web";
 
+import "@/styles/media.css";
+import "@/styles/transitions.css";
+import "@/styles/cursors.css";
+
+
+
 Vue.directive('scrollanimation', ScrollAnimation);
 
 Vue.config.productionTip = false
@@ -33,3 +39,4 @@ var app = new Vue({
 router.onReady(() => {
   app.$mount('#app');
 })
+

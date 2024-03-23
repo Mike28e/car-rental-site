@@ -4,4 +4,7 @@ module.exports = defineConfig({
     'vuetify'
   ],
   publicPath: '',
+  devServer: {
+    historyApiFallback: true
+  }
 })
