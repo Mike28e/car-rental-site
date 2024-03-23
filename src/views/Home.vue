@@ -11,6 +11,7 @@
       <v-custom-app-bar
         :inverted-scroll="false"
         color="transparent"
+        :isHome="true"
       ></v-custom-app-bar>
       <v-container id="#home">
         <v-row>

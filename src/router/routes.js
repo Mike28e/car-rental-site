@@ -14,7 +14,7 @@ export default [
         component: () => import(/* webpackChunkName: "fleet" */ "../views/Fleet.vue")
     },
     {
-    path :'/*',
+    path :'*',
     component:Home
     }
 ];

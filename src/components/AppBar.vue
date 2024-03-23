@@ -23,7 +23,16 @@
       <v-spacer></v-spacer>
 
       <span>
-        <v-btn text class="subtitle-1" to="/" @click="scrollTo('#home')">
+        <v-btn
+          v-if="isHome"
+          text
+          class="subtitle-1"
+          @click="scrollTo('#home')"
+          active-class=""
+        >
+          <span class="mr-2" align="center">Home</span>
+        </v-btn>
+        <v-btn v-else text class="subtitle-1" to="/" active-class="">
           <span class="mr-2" align="center">Home</span>
         </v-btn>
         <template v-if="isMobile">
@@ -35,12 +44,20 @@
               </v-btn>
             </template>
 
-            <v-list>
+            <v-list v-if="isHome">
+              <v-list-item
+                v-for="item in menuItems"
+                :key="item.title"
+                @click="scrollTo(item.id)"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            <v-list v-else>
               <v-list-item
                 v-for="item in menuItems"
                 :key="item.title"
                 :to="item.link"
-                @click="scrollTo(item.id)"
               >
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
@@ -50,16 +67,28 @@
 
         <template v-else>
           <!-- Show buttons for larger screens -->
-          <v-btn
-            v-for="item in menuItems"
-            :key="item.title"
-            text
-            :to="item.link"
-            class="subtitle-1"
-            @click="scrollTo(item.id)"
-          >
-            <span class="mr-2">{{ item.title }}</span>
-          </v-btn>
+          <template v-if="isHome">
+            <v-btn
+              v-for="item in menuItems"
+              :key="item.title"
+              text
+              class="subtitle-1"
+              @click="scrollTo(item.id)"
+            >
+              <span class="mr-2">{{ item.title }}</span>
+            </v-btn>
+          </template>
+          <template v-else>
+            <v-btn
+              v-for="item in menuItems"
+              :key="item.title"
+              text
+              :to="item.link"
+              class="subtitle-1"
+            >
+              <span class="mr-2">{{ item.title }}</span>
+            </v-btn>
+          </template>
           <v-btn
             v-for="social in socials"
             :key="social.name"
@@ -88,6 +117,7 @@ export default {
   props: {
     invertedScroll: { type: Boolean },
     color: { type: String },
+    isHome: { type: Boolean },
   },
   data() {
     return {

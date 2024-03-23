@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <v-custom-app-bar :inverted-scroll="true" color=""></v-custom-app-bar>
+    <v-custom-app-bar
+      :inverted-scroll="true"
+      color=""
+      :isHome="isHome"
+    ></v-custom-app-bar>
 
     <v-main>
       <router-view />
@@ -45,6 +49,15 @@ export default {
     "v-custom-app-bar": vCustomAppBar,
     // Home,
   },
+  watch: {
+    "$route.name": {
+      handler: function (name) {
+        if (name == "home") this.isHome = true;
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
 
   data() {
     return {
@@ -55,6 +68,7 @@ export default {
         { title: "Contact" },
       ],
       socials: socialData,
+      isHome: true,
     };
   },
   computed: {
