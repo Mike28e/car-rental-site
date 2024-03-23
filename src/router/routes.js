@@ -1,16 +1,20 @@
 import Home from "../views/Home.vue";
+// import App from "../App.vue";
 
-const routes = [
+export default [
     {
         path: "/",
         name: "home",
-        component: Home
+        component: Home,
     },
-    // {
-    //     path: "/fleet",
-    //     name: "fleet",
-    //     component: () => import(/* webpackChunkName: "fleet" */ "../views/Fleet.vue")
-    // }
+    {
+        path: '/:name',
+        name: "fleet",
+        props: true,
+        component: () => import(/* webpackChunkName: "fleet" */ "../views/Fleet.vue")
+    },
+    {
+    path :'/*',
+    component:Home
+    }
 ];
-
-export default routes;
