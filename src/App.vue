@@ -12,28 +12,14 @@
         <v-spacer></v-spacer>
 
         <v-btn
+          v-for="social in socials"
+          :key="social.name"
           icon
           small
           class="mx-4"
-          href="https://www.instagram.com/dycerentals"
+          :href="social.link"
           target="_blank"
-          ><v-icon>mdi-instagram</v-icon></v-btn
-        >
-        <v-btn
-          icon
-          small
-          class="mx-4"
-          href="https://www.twitter.com/dycerentals"
-          target="_blank"
-          ><v-icon>mdi-twitter</v-icon></v-btn
-        >
-        <v-btn
-          icon
-          small
-          class="mx-4"
-          href="https://www.facebook.com/people/Dyce-Rentals/61557322134299/"
-          target="_blank"
-          ><v-icon>mdi-facebook</v-icon></v-btn
+          ><v-icon>{{ social.icon }}</v-icon></v-btn
         >
         <v-btn icon small class="mx-4" href="mailto:DyceRentals@gmail.com"
           ><v-icon>mdi-email-outline</v-icon></v-btn
@@ -50,6 +36,7 @@
 <script>
 import vCustomAppBar from "./components/AppBar.vue";
 import Home from "./views/Home";
+import socialData from "./data/socials.js";
 
 export default {
   name: "App",
@@ -67,6 +54,7 @@ export default {
         { title: "Testimonials" },
         { title: "Contact" },
       ],
+      socials: socialData,
     };
   },
   computed: {

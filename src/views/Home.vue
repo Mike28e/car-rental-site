@@ -149,6 +149,14 @@
                     >${{ car.price }} / per day</strong
                   ></v-card-text
                 > -->
+
+                <!-- <v-btn
+                  text
+                  prepend-icon="mdi-plus"
+                  color="grey darken-2"
+                  to="/fleet"
+                  >Details</v-btn
+                > -->
                 <v-spacer></v-spacer>
                 <v-btn
                   text
@@ -302,28 +310,14 @@
                 class="text-center pb-8 font-weight-medium black--text"
               >
                 <v-btn
+                  v-for="social in socials"
+                  :key="social.name"
                   icon
                   x-large
                   color="black"
-                  href="https://www.instagram.com/dycerentals"
+                  :href="social.link"
                   target="_blank"
-                  ><v-icon>mdi-instagram</v-icon></v-btn
-                >
-                <v-btn
-                  icon
-                  x-large
-                  color="black"
-                  href="https://www.twitter.com/dycerentals"
-                  target="_blank"
-                  ><v-icon>mdi-twitter</v-icon></v-btn
-                >
-                <v-btn
-                  icon
-                  x-large
-                  color="black"
-                  href="https://www.facebook.com/people/Dyce-Rentals/61557322134299/"
-                  target="_blank"
-                  ><v-icon>mdi-facebook</v-icon></v-btn
+                  ><v-icon>{{ social.icon }}</v-icon></v-btn
                 >
                 <v-btn
                   icon
@@ -355,8 +349,11 @@
 import vCustomAppBar from "../components/AppBar.vue";
 import vBookingDialog from "../components/BookingDialog.vue";
 import vVehicleGalleryDialog from "../components/VehicleGalleryDialog.vue";
+import vehicleData from "../data/vehicles.js";
+import hotspotData from "../data/hotspots.js";
+import socialData from "../data/socials.js";
 export default {
-  name: "MainPage",
+  name: "MainView",
   metaInfo: {
     title: "Dyce Rentals - Las Vegas Car Rentals",
     meta: [
@@ -395,160 +392,9 @@ export default {
     vehicleGalleryDialog: false,
     vehicleGalleryTitle: null,
     vehicleGalleryImages: [],
-    vehicles: [
-      {
-        id: 1,
-        image: require("@/assets/porsche3.jpg"),
-        name: "Porsche 911 (992)",
-        specs: [],
-        price: "399",
-        images: [
-          require("../assets/porsche_911/Porsche_Gallery1.jpg"),
-          require("../assets/porsche_911/Porsche_Gallery2.jpg"),
-          require("../assets/porsche_911/Porsche_Gallery3.jpg"),
-          require("../assets/porsche_911/Porsche_Gallery4.jpg"),
-          require("../assets/porsche_911/Porsche_Gallery5.jpg"),
-          require("../assets/porsche_911/Porsche_Gallery6.jpg"),
-          require("../assets/porsche_911/Porsche_Gallery7.jpg"),
-          require("../assets/porsche_911/Porsche_Gallery8.jpg"),
-        ],
-      },
-      {
-        id: 2,
-        image: require("@/assets/lambo1.jpg"),
-        name: "Lamborghini Huracan",
-        specs: [],
-        price: "999",
-        images: [
-          require("../assets/lamborghini_huracan/Huracan_Gallery1.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery2.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery3.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery4.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery5.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery6.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery7.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery8.jpg"),
-          require("../assets/lamborghini_huracan/Huracan_Gallery9.jpg"),
-        ],
-      },
-      {
-        id: 3,
-        image: require("@/assets/charger1.jpg"),
-        name: "Dodge Charger SRT Hellcat",
-        specs: [],
-        price: "349",
-        images: [
-          require("../assets/dodge_charger/Charger_Gallery1.jpg"),
-          require("../assets/dodge_charger/Charger_Gallery2.jpg"),
-          require("../assets/dodge_charger/Charger_Gallery3.jpg"),
-          require("../assets/dodge_charger/Charger_Gallery4.jpg"),
-        ],
-      },
-      {
-        id: 5,
-        image: require("@/assets/whitei8-1.jpg"),
-        name: "BMW i8",
-        specs: [],
-        price: "299",
-        images: [
-          require("../assets/bmw_i8_white/BmwWhite_Gallery1.jpg"),
-          require("../assets/bmw_i8_white/BmwWhite_Gallery2.jpg"),
-          require("../assets/bmw_i8_white/BmwWhite_Gallery3.jpg"),
-          require("../assets/bmw_i8_white/BmwWhite_Gallery4.jpg"),
-          require("../assets/bmw_i8_white/BmwWhite_Gallery5.jpg"),
-          require("../assets/bmw_i8_white/BmwWhite_Gallery6.jpg"),
-          require("../assets/bmw_i8_white/BmwWhite_Gallery7.jpg"),
-        ],
-      },
-      {
-        id: 4,
-        image: require("@/assets/greyi8-1.jpg"),
-        name: "BMW i8",
-        specs: [],
-        price: "299",
-        images: [
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery1.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery2.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery3.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery4.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery5.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery6.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery7.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery8.jpg"),
-          require("../assets/bmw_i8_grey/BmwGrey_Gallery9.jpg"),
-        ],
-      },
-      {
-        id: 6,
-        image: require("@/assets/mitsubishi1.jpg"),
-        name: "Mitsubishi Outlander",
-        specs: [],
-        price: "99",
-        images: [
-          require("../assets/mitsubishi_outlander/Outlander_Gallery1.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery2.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery3.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery4.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery5.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery6.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery7.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery8.jpg"),
-          require("../assets/mitsubishi_outlander/Outlander_Gallery9.jpg"),
-        ],
-      },
-      {
-        id: 7,
-        image: require("@/assets/jeep1.jpg"),
-        name: "Jeep Grand Cherokee",
-        specs: [],
-        price: "99",
-        images: [
-          require("../assets/jeep_grand_cherokee/Jeep_Gallery1.jpg"),
-          require("../assets/jeep_grand_cherokee/Jeep_Gallery2.jpg"),
-          require("../assets/jeep_grand_cherokee/Jeep_Gallery3.jpg"),
-          require("../assets/jeep_grand_cherokee/Jeep_Gallery4.jpg"),
-          require("../assets/jeep_grand_cherokee/Jeep_Gallery5.jpg"),
-          require("../assets/jeep_grand_cherokee/Jeep_Gallery6.jpg"),
-          require("../assets/jeep_grand_cherokee/Jeep_Gallery7.jpg"),
-        ],
-      },
-    ],
-    vegasHotSpots: [
-      {
-        image: require("@/assets/redrock1.jpg"),
-        name: "Red Rock Canyon",
-        description:
-          "This beautiful natural area is located just a short drive west of Las Vegas. The Scenic Loop is a 13-mile drive that offers stunning views of the red rock formations. A must-do for anyone visiting Las Vegas.",
-      },
-      {
-        image: require("@/assets/hooverdam1.jpg"),
-        name: "Hoover Dam",
-        description:
-          "Just a short drive from Las Vegas, Hoover Dam is an engineering marvel that's worth a visit. The winding roads and stunning views make for an exciting and memorable drive.",
-      },
-      {
-        image: require("@/assets/valleyoffire1.jpg"),
-        name: "Valley of Fire",
-        description:
-          "This stunning park is located about an hour from Las Vegas and offers incredible views of red rock formations. Driving through the park is a great way to enjoy the scenery and the open road.",
-      },
-      {
-        image: require("@/assets/lakemead1.jpg"),
-        name: "Lake Mead",
-        description:
-          "If you're looking for a beautiful spot to enjoy one of our cars, Lake Mead is a great option. The winding roads and scenic views make for a thrilling drive, and there are plenty of places to stop and enjoy the water.",
-      },
-      // {
-      //   image: require("@/assets/lvmotorspeedway1.jpg"),
-      //   name: "Las Vegas Motor Speedway",
-      //   description: "",
-      // },
-      // {
-      //   image: require("@/assets/neonmuseum1.jpg"),
-      //   name: "Neon Museum",
-      //   description: "",
-      // },
-    ],
+    vehicles: vehicleData,
+    vegasHotSpots: hotspotData,
+    socials: socialData,
   }),
   methods: {
     scrollTo(id) {
@@ -578,91 +424,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @media (min-device-width: 1600px) {
-//   .container {
-//     max-width: 1440px;
-//   }
-// }
-/* Extra small devices (phones, 480px and down) */
-@media only screen and (max-width: 480px) {
-  .container {
-    max-width: 480px;
-  }
-  .hide-on-phone {
-    display: none;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 481px to 768px) */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-  .hide-on-phone {
-    display: none;
-  }
-}
-
-/* Medium devices (landscape tablets, 769px to 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-  .hide-on-phone {
-    display: none;
-  }
-}
-
-/* Large devices (desktops, 1025px and up) */
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
-  .container {
-    max-width: 1200px;
-  }
-}
-
-@media only screen and (min-width: 1201px) {
-  .container {
-    max-width: 1201px;
-  }
-}
-
-.before-enter.fadeIn {
-  opacity: 0;
-  // transform: translateX(100px);
-  transition: all 3s ease-out;
-}
-.enter.fadeIn {
-  opacity: 1;
-  // transform: translateX(0px);
-}
-.before-enter.slideFromBottom {
-  opacity: 0;
-  transform: translateY(100px);
-  transition: all 2s ease-out;
-}
-.enter.slideFromBottom {
-  opacity: 1;
-  transform: translateY(0px);
-}
-.before-enter.slideFromLeft {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: all 2s ease-out;
-}
-.enter.slideFromLeft {
-  opacity: 1;
-  transform: translateX(0px);
-}
-.before-enter.slideFromRight {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 2s ease-out;
-}
-.enter.slideFromRight {
-  opacity: 1;
-  transform: translateX(0px);
-}
-
 .parallax {
   /* The image used */
   background-image: url("https://images.unsplash.com/photo-1619252584172-a83a949b6efd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
@@ -686,8 +447,5 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.cursor-pointer {
-  cursor: pointer;
 }
 </style>

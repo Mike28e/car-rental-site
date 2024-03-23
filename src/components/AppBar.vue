@@ -59,28 +59,14 @@
             <span class="mr-2">{{ item.title }}</span>
           </v-btn>
           <v-btn
+            v-for="social in socials"
+            :key="social.name"
             icon
             small
             class="mx-1"
-            href="https://www.instagram.com/dycerentals"
+            :href="social.link"
             target="_blank"
-            ><v-icon>mdi-instagram</v-icon></v-btn
-          >
-          <v-btn
-            icon
-            small
-            class="mx-1"
-            href="https://www.twitter.com/dycerentals"
-            target="_blank"
-            ><v-icon>mdi-twitter</v-icon></v-btn
-          >
-          <v-btn
-            icon
-            small
-            class="mx-1"
-            href="https://www.facebook.com/people/Dyce-Rentals/61557322134299/"
-            target="_blank"
-            ><v-icon>mdi-facebook</v-icon></v-btn
+            ><v-icon>{{ social.icon }}</v-icon></v-btn
           >
           <v-btn icon small class="mx-1" href="mailto:DyceRentals@gmail.com"
             ><v-icon>mdi-email-outline</v-icon></v-btn
@@ -91,42 +77,10 @@
   </v-app-bar>
 </template>
 
-<style lang="scss" scoped>
-@media only screen and (max-width: 480px) {
-  .container {
-    max-width: 480px;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 481px to 768px) */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-/* Medium devices (landscape tablets, 769px to 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-/* Large devices (desktops, 1025px and up) */
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
-  .container {
-    max-width: 1200px;
-  }
-}
-
-@media only screen and (min-width: 1201px) {
-  .container {
-    max-width: 1201px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
 
 <script>
+import socialData from "../data/socials.js";
 export default {
   components: {},
   props: {
@@ -141,6 +95,7 @@ export default {
         // { title: "Testimonials", id: "#testimonials" },
         { title: "Contact", id: "#contact" },
       ],
+      socials: socialData,
     };
   },
   computed: {
