@@ -76,3 +76,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@import "./styles/media.css";
+@import "./styles/transitions.css";
+@import "./styles/cursors.css";
+</style>
