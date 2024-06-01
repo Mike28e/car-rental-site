@@ -2,9 +2,9 @@
   <div>
     <v-custom-app-bar :inverted-scroll="false"></v-custom-app-bar>
 
-    <v-card tile flat :class="isMobile ? 'mx-0 px-0 py-6' : 'mx-8 px-8 py-6'">
+    <v-card tile flat :class="isMobile ? 'mx-1 px-0 py-6' : 'mx-8 px-8 py-6'">
       <v-row>
-        <v-col cols="7">
+        <v-col cols="12" md="7">
           <v-skeleton-loader class="mx-auto" type="card, image">
             <v-row>
               <v-col cols="12">
@@ -15,7 +15,7 @@
                 ></v-img>
               </v-col>
             </v-row>
-            <v-row>
+            <v-row dense>
               <v-col
                 cols="4"
                 v-for="(image, idx) in selectedVehicle.images.slice(1, 7)"
@@ -30,7 +30,7 @@
             </v-row>
           </v-skeleton-loader>
         </v-col>
-        <v-col cols="5">
+        <v-col cols="12" md="5">
           <v-card-title
             class="text-overline"
             style="font-size: 22px !important"
@@ -101,12 +101,12 @@
       <v-row>
         <v-col>
           <v-card-title
-            class="mx-0 px-0 mb-2 font-weight-normal grey--text text--darken-2"
+            class="mx-3 px-0 mb-2 font-weight-normal grey--text text--darken-2"
             style="font-size: 26px !important; font-weight: 300 !important"
           >
             {{ selectedVehicle.name }} Overview
           </v-card-title>
-          <v-card-text class="body-1 mx-0 px-0">
+          <v-card-text class="body-1 mx-3 px-0">
             {{ selectedVehicle.overview }}
           </v-card-text>
         </v-col>
