@@ -51,7 +51,7 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col class="my-8">
+              <v-col class="mt-8 mb-4">
                 <v-card-subtitle
                   class="mx-0 px-0 pb-6 font-weight-normal"
                   style="font-size: 24px !important"
@@ -62,7 +62,7 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col class="my-6">
+              <v-col class="my-0">
                 <v-card-subtitle
                   class="mx-0 px-0 pb-6 font-weight-normal blue--text text--darken-2"
                   style="font-size: 24px !important"

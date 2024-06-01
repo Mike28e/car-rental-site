@@ -23,7 +23,13 @@
       <v-spacer></v-spacer>
 
       <span>
-        <v-btn v-if="isHome" text class="subtitle-1 btn-fix" to="#home">
+        <v-btn
+          v-if="isHome"
+          text
+          class="subtitle-1 btn-fix"
+          to="#home"
+          @click="scrollTo('#home')"
+        >
           <span class="mr-2" align="center">Home</span>
         </v-btn>
         <v-btn v-else text class="subtitle-1" to="/" active-class="">
@@ -116,6 +122,7 @@ export default {
         { title: "Rentals", id: "#rentals", link: "/#rentals" },
         // { title: "Testimonials", id: "#testimonials" },
         { title: "Contact", id: "#contact", link: "/#contact" },
+        { title: "FAQ", id: "", link: "/faq" },
       ],
       socials: socialData,
     };
@@ -134,11 +141,13 @@ export default {
   },
   methods: {
     scrollTo(id) {
-      document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
+      if (document.getElementById(id)) {
+        document.getElementById(id).scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest",
+        });
+      }
     },
   },
 };
