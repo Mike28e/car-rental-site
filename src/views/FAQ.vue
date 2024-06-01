@@ -37,22 +37,28 @@
       </v-row>
       <v-row class="mt-8 pt-8" height="auto">
         <v-col cols="12" md="6">
-          <v-img
-            height="300px"
-            :src="require('../assets/decor/pexels-rpnickson-3200057.jpg')"
-          ></v-img>
+          <v-skeleton-loader type="image">
+            <v-img
+              height="300px"
+              :src="require('../assets/decor/pexels-rpnickson-3200057.jpg')"
+            ></v-img>
+          </v-skeleton-loader>
         </v-col>
         <v-col cols="12" md="3">
-          <v-img
-            height="300px"
-            :src="require('../assets/decor/pexels-autorecords-10394786.jpg')"
-          ></v-img>
+          <v-skeleton-loader type="image">
+            <v-img
+              height="300px"
+              :src="require('../assets/decor/pexels-autorecords-10394786.jpg')"
+            ></v-img>
+          </v-skeleton-loader>
         </v-col>
         <v-col cols="12" md="3">
-          <v-img
-            height="300px"
-            :src="require('../assets/decor/pexels-jibarofoto-3689527.jpg')"
-          ></v-img>
+          <v-skeleton-loader type="image">
+            <v-img
+              height="300px"
+              :src="require('../assets/decor/pexels-jibarofoto-3689527.jpg')"
+            ></v-img>
+          </v-skeleton-loader>
         </v-col>
       </v-row>
     </v-card>

@@ -8,7 +8,13 @@ export default [
     component: Home,
   },
   {
-    path: "/:name",
+    path: "/blog",
+    name: "blog",
+    props: true,
+    component: () => import(/* webpackChunkName: "blog" */ "../views/Blog.vue"),
+  },
+  {
+    path: "/faq",
     name: "faq",
     props: true,
     component: () => import(/* webpackChunkName: "faq" */ "../views/FAQ.vue"),

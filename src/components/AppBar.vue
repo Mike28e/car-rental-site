@@ -122,6 +122,7 @@ export default {
         { title: "Rentals", id: "#rentals", link: "/#rentals" },
         // { title: "Testimonials", id: "#testimonials" },
         { title: "Contact", id: "#contact", link: "/#contact" },
+        { title: "Blog", id: "", link: "/blog" },
         { title: "FAQ", id: "", link: "/faq" },
       ],
       socials: socialData,
