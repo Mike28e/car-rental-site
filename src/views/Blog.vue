@@ -123,7 +123,7 @@
             <v-card-text class="mx-0 px-0 pt-4">
               <v-skeleton-loader type="image">
                 <v-img
-                  height="300px"
+                  max-height="400px"
                   :src="
                     require('../assets/decor/pexels-tima-miroshnichenko-5717642.jpg')
                   "
