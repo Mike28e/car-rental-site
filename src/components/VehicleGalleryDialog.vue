@@ -1,15 +1,12 @@
 <template>
-  <v-dialog v-model="show" :class="isMobile ? 'mx-0 px-0' : ''" width="800px">
-    <v-card tile flat :class="isMobile ? 'mx-0 px-0' : ''">
-      <v-card-title
-        v-if="!isMobile"
-        class="text-h5 font-weight-light grey lighten-2 grey--text text--darken-2 mb-8"
-      >
-        {{ title }}
-      </v-card-title>
-
-      <v-card-text :class="isMobile ? 'mx-0 px-0 my-0 py-0' : ''">
-        <v-carousel height="auto" hide-delimiters>
+  <v-dialog v-model="show" class="mx-0 px-0" width="800px">
+    <v-card tile flat class="mx-0 px-0">
+      <v-card-text class="mx-0 px-0 my-0 py-0">
+        <v-carousel
+          height="auto"
+          :hide-delimiters="isMobile"
+          v-model="currentIndex"
+        >
           <v-carousel-item v-for="(src, i) in images" :key="i" eager>
             <v-img :src="src" eager contain></v-img>
           </v-carousel-item>
@@ -25,9 +22,17 @@ export default {
     value: { type: Boolean },
     title: { type: String },
     images: { type: Array },
+    startIndex: { type: Number },
   },
   data() {
-    return {};
+    return {
+      currentIndex: 0,
+    };
+  },
+  watch: {
+    startIndex(idx) {
+      this.currentIndex = idx;
+    },
   },
   computed: {
     show: {

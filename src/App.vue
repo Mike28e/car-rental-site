@@ -4,6 +4,7 @@
       :inverted-scroll="true"
       color=""
       :isHome="isHome"
+      :isMainApp="true"
     ></v-custom-app-bar>
 
     <v-main>

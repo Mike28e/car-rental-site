@@ -3,7 +3,7 @@
     app
     :inverted-scroll="invertedScroll"
     :color="color"
-    :hide-on-scroll="!invertedScroll"
+    :hide-on-scroll="!invertedScroll && isMainApp && isHome"
   >
     <v-container class="d-flex justify-center">
       <v-img
@@ -118,6 +118,7 @@ export default {
     invertedScroll: { type: Boolean },
     color: { type: String },
     isHome: { type: Boolean },
+    isMainApp: { type: Boolean },
   },
   data() {
     return {

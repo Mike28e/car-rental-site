@@ -113,16 +113,14 @@
               class="mt-2 darken-2 slideFromBottom"
               v-scrollanimation
             >
-              <v-hover>
-                <v-card
-                  flat
-                  slot-scope="{ hover }"
-                  :elevation="hover ? 12 : 0"
-                  style="
-                    border-bottom-right-radius: 0px;
-                    border-bottom-left-radius: 0px;
-                  "
-                >
+              <v-card
+                flat
+                style="
+                  border-bottom-right-radius: 0px;
+                  border-bottom-left-radius: 0px;
+                "
+              >
+                <router-link :to="getDetailsPageUrl(car.id)">
                   <v-img
                     class="cursor-pointer"
                     dark
@@ -130,8 +128,8 @@
                     :aspect-ratio="16 / 9"
                     v-on:click="openVehicleGalleryDialog(car.id)"
                   ></v-img>
-                </v-card>
-              </v-hover>
+                </router-link>
+              </v-card>
 
               <v-card-title
                 class="text-overline pb-0 mb-0"
@@ -155,7 +153,7 @@
                   text
                   prepend-icon="mdi-plus"
                   color="grey darken-2"
-                  :to=getDetailsPageUrl(car.id)
+                  :to="getDetailsPageUrl(car.id)"
                   >Details</v-btn
                 >
                 <v-spacer></v-spacer>
@@ -429,8 +427,8 @@ export default {
       return id != null ? this.vehicles.find((v) => v.id == id) : null;
     },
     getDetailsPageUrl(id) {
-      return `/fleet/${id}`
-    }
+      return `/fleet/${id}`;
+    },
   },
 };
 </script>
