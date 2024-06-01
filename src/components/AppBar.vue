@@ -23,13 +23,7 @@
       <v-spacer></v-spacer>
 
       <span>
-        <v-btn
-          v-if="isHome"
-          text
-          class="subtitle-1"
-          @click="scrollTo('#home')"
-          active-class=""
-        >
+        <v-btn v-if="isHome" text class="subtitle-1 btn-fix" to="#home">
           <span class="mr-2" align="center">Home</span>
         </v-btn>
         <v-btn v-else text class="subtitle-1" to="/" active-class="">
@@ -44,20 +38,13 @@
               </v-btn>
             </template>
 
-            <v-list v-if="isHome">
+            <v-list>
               <v-list-item
-                v-for="item in menuItems"
-                :key="item.title"
-                @click="scrollTo(item.id)"
-              >
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-            <v-list v-else>
-              <v-list-item
+                class="btn-fix"
                 v-for="item in menuItems"
                 :key="item.title"
                 :to="item.link"
+                @click="scrollTo(item.id)"
               >
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
@@ -67,28 +54,17 @@
 
         <template v-else>
           <!-- Show buttons for larger screens -->
-          <template v-if="isHome">
-            <v-btn
-              v-for="item in menuItems"
-              :key="item.title"
-              text
-              class="subtitle-1"
-              @click="scrollTo(item.id)"
-            >
-              <span class="mr-2">{{ item.title }}</span>
-            </v-btn>
-          </template>
-          <template v-else>
-            <v-btn
-              v-for="item in menuItems"
-              :key="item.title"
-              text
-              :to="item.link"
-              class="subtitle-1"
-            >
-              <span class="mr-2">{{ item.title }}</span>
-            </v-btn>
-          </template>
+          <v-btn
+            v-for="item in menuItems"
+            :key="item.title"
+            text
+            class="subtitle-1 btn-fix"
+            :to="item.link"
+            @click="scrollTo(item.id)"
+          >
+            <span class="mr-2">{{ item.title }}</span>
+          </v-btn>
+
           <v-btn
             v-for="social in socials"
             :key="social.name"
@@ -108,7 +84,20 @@
   </v-app-bar>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn-fix::before {
+  opacity: 0 !important;
+}
+.btn-fix:active::before {
+  opacity: 0 !important;
+}
+.btn-fix:hover::before {
+  opacity: 0 !important;
+}
+.btn-fix:focus::after {
+  opacity: 0 !important;
+}
+</style>
 
 <script>
 import socialData from "../data/socials.js";

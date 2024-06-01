@@ -388,6 +388,15 @@ export default {
     // );
     // document.head.appendChild(elfsightScript);
   },
+  watch: {
+    "$route.hash": {
+      handler: function (hash) {
+        if (hash != null) this.scrollTo(hash);
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
   computed: {
     // googleUrl() {
     //   return `https://www.google.com/maps/embed/v1/search?q=lanier%20luxury%20rentals&key=${process.env.VUE_APP_KEY}&center=36.107375,-115.174747&zoom=17`;
@@ -405,11 +414,13 @@ export default {
   }),
   methods: {
     scrollTo(id) {
-      document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
+      if (document.getElementById(id)) {
+        document.getElementById(id).scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest",
+        });
+      }
     },
     openVehicleDialog(selectedVehicleId) {
       this.bookSelectedVehicleId = selectedVehicleId;
