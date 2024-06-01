@@ -8,7 +8,7 @@ export default [
         component: Home,
     },
     {
-        path: '/:name',
+        path: '/:name/:id',
         name: "fleet",
         props: true,
         component: () => import(/* webpackChunkName: "fleet" */ "../views/Fleet.vue")

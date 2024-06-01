@@ -155,7 +155,7 @@
                   text
                   prepend-icon="mdi-plus"
                   color="grey darken-2"
-                  to="/fleet"
+                  :to=getDetailsPageUrl(car.id)
                   >Details</v-btn
                 >
                 <v-spacer></v-spacer>
@@ -428,6 +428,9 @@ export default {
     getVehicle(id) {
       return id != null ? this.vehicles.find((v) => v.id == id) : null;
     },
+    getDetailsPageUrl(id) {
+      return `/fleet/${id}`
+    }
   },
 };
 </script>

@@ -3,8 +3,8 @@ module.exports = defineConfig({
   transpileDependencies: [
     'vuetify'
   ],
-  publicPath: '',
+  publicPath: '/',
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   }
 })
