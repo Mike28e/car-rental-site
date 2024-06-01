@@ -151,13 +151,13 @@
                   ></v-card-text
                 > -->
 
-                <!-- <v-btn
+                <v-btn
                   text
                   prepend-icon="mdi-plus"
                   color="grey darken-2"
                   to="/fleet"
                   >Details</v-btn
-                > -->
+                >
                 <v-spacer></v-spacer>
                 <v-btn
                   text
