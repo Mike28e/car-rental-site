@@ -33,19 +33,19 @@
         <v-col cols="12" md="5">
           <v-card-title
             class="text-overline"
-            style="font-size: 22px !important"
+            style="font-size: 22px !important; word-break: break-word"
           >
             {{ selectedVehicle.name }}
           </v-card-title>
           <v-card-text class="body-1">
             <v-row>
-              <v-col class="ma-3 pa-0">
+              <v-col class="ma-0 pa-3">
                 <v-chip
                   outlined
                   label
                   v-for="feature in selectedVehicle.features"
                   :key="feature"
-                  class="mr-1"
+                  class="mr-1 mb-1"
                   >{{ feature }}</v-chip
                 >
               </v-col>
@@ -54,7 +54,7 @@
               <v-col class="mt-8 mb-4">
                 <v-card-subtitle
                   class="mx-0 px-0 pb-6 font-weight-normal"
-                  style="font-size: 24px !important"
+                  style="font-size: 24px !important; word-break: break-word"
                 >
                   Extras
                 </v-card-subtitle>
@@ -65,7 +65,7 @@
               <v-col class="my-0">
                 <v-card-subtitle
                   class="mx-0 px-0 pb-6 font-weight-normal blue--text text--darken-2"
-                  style="font-size: 24px !important"
+                  style="font-size: 24px !important; word-break: break-word"
                 >
                   Reserve
                 </v-card-subtitle>
@@ -102,11 +102,15 @@
         <v-col>
           <v-card-title
             class="mx-3 px-0 mb-2 font-weight-normal grey--text text--darken-2"
-            style="font-size: 26px !important; font-weight: 300 !important"
+            style="
+              font-size: 26px !important;
+              font-weight: 300 !important;
+              word-break: break-word;
+            "
           >
             {{ selectedVehicle.name }} Overview
           </v-card-title>
-          <v-card-text class="body-1 mx-3 px-0">
+          <v-card-text class="body-1 mx-3 px-0" style="word-break: break-word">
             {{ selectedVehicle.overview }}
           </v-card-text>
         </v-col>

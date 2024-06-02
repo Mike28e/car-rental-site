@@ -9,7 +9,11 @@
     >
       <v-card-title
         class=""
-        style="font-size: 42px !important; font-weight: 300 !important"
+        style="
+          font-size: 42px !important;
+          font-weight: 300 !important;
+          line-height: 1.2em;
+        "
       >
         Frequently Asked Questions
       </v-card-title>
