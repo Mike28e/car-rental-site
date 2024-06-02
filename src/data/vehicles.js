@@ -40,6 +40,7 @@ const data = [
       require("../assets/lamborghini_huracan/Huracan_Gallery8.jpg"),
       require("../assets/lamborghini_huracan/Huracan_Gallery9.jpg"),
     ],
+    features: ["2-Door", "2-Seats", "Automatic", "CarPlay", "Android Auto"],
     turoUrl:
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/lamborghini/huracan/2487303",
   },
@@ -56,6 +57,7 @@ const data = [
       require("../assets/dodge_charger/Charger_Gallery3.jpg"),
       require("../assets/dodge_charger/Charger_Gallery4.jpg"),
     ],
+    features: ["4-Door", "4-Seats", "Automatic", "Bluetooth"],
     turoUrl:
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/dodge/charger/2514350",
   },
@@ -75,6 +77,7 @@ const data = [
       require("../assets/bmw_i8_white/BmwWhite_Gallery6.jpg"),
       require("../assets/bmw_i8_white/BmwWhite_Gallery7.jpg"),
     ],
+    features: ["2-Door", "4-Seats", "Automatic", "Bluetooth"],
     turoUrl:
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/bmw/i8/2487256",
   },
@@ -95,6 +98,7 @@ const data = [
       require("../assets/bmw_i8_grey/BmwGrey_Gallery8.jpg"),
       require("../assets/bmw_i8_grey/BmwGrey_Gallery9.jpg"),
     ],
+    features: ["2-Door", "4-Seats", "Automatic", "Bluetooth"],
     turoUrl:
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/bmw/i8/2496866",
   },
@@ -116,6 +120,7 @@ const data = [
       require("../assets/mitsubishi_outlander/Outlander_Gallery8.jpg"),
       require("../assets/mitsubishi_outlander/Outlander_Gallery9.jpg"),
     ],
+    features: ["4-Door", "7-Seats", "Automatic", "CarPlay", "Android Auto"],
     turoUrl:
       "https://turo.com/us/en/suv-rental/united-states/las-vegas-nv/mitsubishi/outlander/2500004",
   },
@@ -135,6 +140,7 @@ const data = [
       require("../assets/jeep_grand_cherokee/Jeep_Gallery6.jpg"),
       require("../assets/jeep_grand_cherokee/Jeep_Gallery7.jpg"),
     ],
+    features: ["4-Door", "5-Seats", "Automatic", "CarPlay", "Android Auto"],
     turoUrl:
       "https://turo.com/us/en/suv-rental/united-states/las-vegas-nv/jeep/grand-cherokee/2471751",
   },

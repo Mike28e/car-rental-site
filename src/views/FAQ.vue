@@ -5,7 +5,7 @@
     <v-card
       tile
       flat
-      :class="isMobile ? 'mx-1 px-0 py-6' : 'mx-8 px-8 mt-12 pt-12 pb-6'"
+      :class="isMobile ? 'mx-0 px-4 py-6' : 'mx-8 px-8 mt-12 pt-12 pb-6'"
     >
       <v-card-title
         class=""

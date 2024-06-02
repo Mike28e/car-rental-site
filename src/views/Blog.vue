@@ -5,7 +5,7 @@
     <v-sheet
       tile
       flat
-      :class="isMobile ? 'mx-1 px-0 py-6' : 'mx-12 px-12 mt-12 pt-12 pb-6'"
+      :class="isMobile ? 'mx-0 px-4 py-6' : 'mx-12 px-12 mt-12 pt-12 pb-6'"
     >
       <v-row>
         <v-col cols="12" md="8">
