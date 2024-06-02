@@ -50,7 +50,7 @@
                 >
               </v-col>
             </v-row>
-            <v-row>
+            <v-row v-if="selectedVehicle.extras?.length > 0">
               <v-col class="mt-8 mb-4">
                 <v-card-subtitle
                   class="mx-0 px-0 pb-6 font-weight-normal"
@@ -110,7 +110,10 @@
           >
             {{ selectedVehicle.name }} Overview
           </v-card-title>
-          <v-card-text class="body-1 mx-3 px-0" style="word-break: break-word">
+          <v-card-text
+            class="body-1 mx-3 px-0"
+            style="word-break: break-word; white-space: pre-line"
+          >
             {{ selectedVehicle.overview }}
           </v-card-text>
         </v-col>

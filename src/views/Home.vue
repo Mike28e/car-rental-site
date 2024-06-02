@@ -126,8 +126,20 @@
                     dark
                     :src="car.image"
                     :aspect-ratio="16 / 9"
-                    v-on:click="openVehicleGalleryDialog(car.id)"
-                  ></v-img>
+                  >
+                    <template v-slot:placeholder>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="grey lighten-3"
+                        ></v-progress-circular>
+                      </v-row>
+                    </template>
+                  </v-img>
                 </router-link>
               </v-card>
 
