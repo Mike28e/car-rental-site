@@ -246,11 +246,6 @@ export default {
       deep: true,
       immediate: true,
     },
-    searchText: {
-      handler: function (v) {
-        console.log(v);
-      },
-    },
   },
   methods: {
     scrollTo(id) {
