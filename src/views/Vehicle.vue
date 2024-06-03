@@ -133,12 +133,12 @@ import vCustomAppBar from "../components/AppBar.vue";
 import vehicleData from "../data/vehicles.js";
 import vVehicleGalleryDialog from "../components/VehicleGalleryDialog.vue";
 export default {
-  name: "FleetView",
+  name: "VehicleView",
   metaInfo: {
-    title: "Dyce Rentals - Fleet - Las Vegas Car Rentals",
+    title: "Dyce Rentals - Vehicle - Las Vegas Car Rentals",
     meta: [
       {
-        name: "fleet",
+        name: "rentals",
         content: "",
       },
     ],

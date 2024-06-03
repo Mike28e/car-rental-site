@@ -1,6 +1,6 @@
 const data = [
   {
-    id: 1,
+    id: "Porsche 911",
     image: require("@/assets/porsche3.jpg"),
     name: "Porsche 911 (992)",
     specs: [],
@@ -24,7 +24,7 @@ const data = [
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/porsche/911/2488172",
   },
   {
-    id: 2,
+    id: "Lamborghini Huracan",
     image: require("@/assets/lambo1.jpg"),
     name: "Lamborghini Huracan",
     specs: [],
@@ -49,7 +49,7 @@ const data = [
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/lamborghini/huracan/2487303",
   },
   {
-    id: 3,
+    id: "Dodge Charger SRT Hellcat",
     image: require("@/assets/charger1.jpg"),
     name: "Dodge Charger SRT Hellcat",
     specs: [],
@@ -73,7 +73,7 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/dodge/charger/2514350",
   },
   {
-    id: 5,
+    id: "BMW i8 White",
     image: require("@/assets/whitei8-1.jpg"),
     name: "BMW i8",
     specs: [],
@@ -98,7 +98,7 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/bmw/i8/2487256",
   },
   {
-    id: 4,
+    id: "BMW i8 Grey",
     image: require("@/assets/greyi8-1.jpg"),
     name: "BMW i8",
     specs: [],
@@ -122,7 +122,7 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
       "https://turo.com/us/en/car-rental/united-states/las-vegas-nv/bmw/i8/2496866",
   },
   {
-    id: 6,
+    id: "Mitsubishi Outlander",
     image: require("@/assets/mitsubishi1.jpg"),
     name: "Mitsubishi Outlander",
     specs: [],
@@ -145,7 +145,7 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
       "https://turo.com/us/en/suv-rental/united-states/las-vegas-nv/mitsubishi/outlander/2500004",
   },
   {
-    id: 7,
+    id: "Jeep Grand Cherokee",
     image: require("@/assets/jeep1.jpg"),
     name: "Jeep Grand Cherokee",
     specs: [],

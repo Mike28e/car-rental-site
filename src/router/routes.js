@@ -20,11 +20,11 @@ export default [
     component: () => import(/* webpackChunkName: "faq" */ "../views/FAQ.vue"),
   },
   {
-    path: "/:name/:id",
-    name: "fleet",
+    path: "/rentals/vehicle/:id",
+    name: "vehicle",
     props: true,
     component: () =>
-      import(/* webpackChunkName: "fleet" */ "../views/Fleet.vue"),
+      import(/* webpackChunkName: "vehicle" */ "../views/Vehicle.vue"),
   },
   {
     path: "*",
