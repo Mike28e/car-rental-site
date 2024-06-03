@@ -30,6 +30,7 @@
                   style="
                     font-size: 42px !important;
                     font-weight: 300 !important;
+                    line-height: 1.2em !important;
                   "
                 >
                   {{ selectedPost.name }}
@@ -55,16 +56,31 @@
                   max-height="500px"
                 >
                 </v-img>
-                <v-card-text
-                  class="mx-0 px-0 font-weight-normal"
-                  style="
-                    font-size: 18px !important;
-                    font-weight: 400 !important;
-                    line-height: 1.5em !important;
-                  "
+                <v-sheet
+                  v-for="(section, idx) in selectedPost.sections"
+                  :key="idx"
                 >
-                  {{ selectedPost.description }}
-                </v-card-text>
+                  <v-card-text
+                    class="mx-0 px-0 font-weight-normal"
+                    style="
+                      font-size: 18px !important;
+                      font-weight: 400 !important;
+                      line-height: 1.5em !important;
+                      word-break: break-word;
+                    "
+                    v-html="section.body"
+                  />
+                  <!-- {{ section.body }} -->
+                  <!-- </v-card-text> -->
+                  <v-img
+                    v-if="section.image != null"
+                    :src="section.image"
+                    aspect-ratio="1"
+                    class="grey lighten-2"
+                    max-height="250px"
+                  >
+                  </v-img>
+                </v-sheet>
               </v-card>
             </v-col>
           </v-row>
@@ -105,34 +121,40 @@
                 v-for="post in blogposts"
                 :key="post.name"
               >
-                <v-row class="mt-2">
-                  <v-col cols="5">
-                    <v-img
-                      :src="post.image"
-                      aspect-ratio="1"
-                      class="grey lighten-2"
-                    >
-                    </v-img>
-                  </v-col>
-                  <v-col cols="7" class="pt-0">
-                    <v-card-title
-                      class="mx-0 px-0 pt-0"
-                      style="
-                        font-size: 16px !important;
-                        font-weight: 400 !important;
-                        white-space: nowrap;
-                      "
-                    >
-                      {{ post.name }}
-                    </v-card-title>
-                    <v-card-subtitle
-                      class="mx-0 px-0 py-1 yellow--text text--darken-4"
-                      style="font-size: 12px !important"
-                    >
-                      {{ post.dateCreated }}
-                    </v-card-subtitle>
-                  </v-col>
-                </v-row>
+                <router-link
+                  :to="getBlogPostPageUrl(post.name)"
+                  style="text-decoration: none !important"
+                >
+                  <v-row class="mt-2">
+                    <v-col cols="5" class="pt-1">
+                      <v-img
+                        :src="post.image"
+                        aspect-ratio="1"
+                        class="grey lighten-2"
+                      >
+                      </v-img>
+                    </v-col>
+                    <v-col cols="7" class="pt-0">
+                      <v-card-title
+                        class="mx-0 px-0 pt-0"
+                        style="
+                          font-size: 16px !important;
+                          font-weight: 400 !important;
+                          line-height: 1.1em !important;
+                          word-break: break-word !important;
+                        "
+                      >
+                        {{ getShortenedPostName(post.name) }}
+                      </v-card-title>
+                      <v-card-subtitle
+                        class="mx-0 px-0 py-1 yellow--text text--darken-4"
+                        style="font-size: 12px !important"
+                      >
+                        {{ post.dateCreated }}
+                      </v-card-subtitle>
+                    </v-col>
+                  </v-row>
+                </router-link>
               </v-card>
             </v-card-text>
           </v-card>
@@ -248,6 +270,12 @@ export default {
           query: { search: encodeURIComponent(this.searchText) },
         });
       }
+    },
+    getShortenedPostName(postName) {
+      return postName.length > 40 ? `${postName.substring(0, 40)}..` : postName;
+    },
+    getBlogPostPageUrl(id) {
+      return `/blog/post/${id}`;
     },
   },
 };

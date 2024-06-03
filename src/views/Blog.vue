@@ -168,7 +168,8 @@
                         style="
                           font-size: 16px !important;
                           font-weight: 400 !important;
-                          white-space: nowrap;
+                          line-height: 1.1em !important;
+                          word-break: break-word !important;
                         "
                       >
                         {{ post.name }}
