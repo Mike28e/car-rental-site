@@ -7,12 +7,15 @@
   >
     <v-container class="d-flex justify-center">
       <v-img
+        @click="goHome"
+        class="cursor-pointer"
         src="../assets/icons8-dice-30.png"
         max-width="28px"
         max-height="28px"
       ></v-img>
       <v-toolbar-title
-        class="text-overline pl-1"
+        @click="goHome"
+        class="text-overline pl-1 cursor-pointer"
         style="
           white-space: nowrap;
           overflow: visible;
@@ -149,6 +152,10 @@ export default {
           inline: "nearest",
         });
       }
+    },
+    goHome() {
+      if (!this.isHome) this.$router.push(`/`);
+      else this.scrollTo("#home");
     },
   },
 };
