@@ -38,7 +38,16 @@
                 <v-card-subtitle
                   class="mx-0 px-0 py-4 yellow--text text--darken-4"
                 >
-                  {{ post.dateCreated }} / {{ tagsToString(post.tags) }}
+                  {{ post.dateCreated }} /
+                  <v-chip
+                    outlined
+                    label
+                    x-small
+                    v-for="tag in post.tags"
+                    :key="tag"
+                    class="mr-1 mb-1 px-1 py-0 purple--text purple"
+                    >{{ tag }}</v-chip
+                  >
                 </v-card-subtitle>
                 <v-img
                   :src="post.image"
