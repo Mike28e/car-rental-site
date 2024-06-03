@@ -97,37 +97,54 @@ export default {
   },
   data: () => ({
     faqs: [
+      // {
+      //   title: "Do you rent to international visitors?",
+      //   content: "Yes, we welcome international visitors. To rent a car, you will need a valid driver's license from your home country and a passport. An International Driving Permit (IDP) may also be required.",
+      // },
       {
-        title: "Do you rent to international visitors?",
-        content: "Unavailable",
+        title: "How old do you have to be to rent a car?",
+        content:
+          "To rent a car, you must be at least 21 years old. Renters under the age of 25 may be subject to a young driver surcharge.",
       },
       {
         title: "Do you offer insurance?",
-        content: "Unavailable",
-      },
-      {
-        title: "How old do you have to be to rent a car?",
-        content: "Unavailable",
+        content:
+          "At the moment, we do not offer insurance. You must provide your own insurance.",
       },
       {
         title: "What is your cancellation policy?",
-        content: "Unavailable",
+        content:
+          "Our cancellation policy allows you to cancel your reservation up to 72 hours before the scheduled pick-up time without any penalty. Cancellations made within 72 hours of the pick-up time may incur a fee.",
       },
       {
         title: "How many miles can I drive?",
-        content: "Unavailable",
+        content:
+          "We offer limited mileage options. Based on the option you choose, you will have a set number of miles included, and additional miles will incur a fee.",
       },
       {
         title: "Can I drive out of state?",
-        content: "Unavailable",
+        content:
+          "Yes, you can drive our rental cars out of state. However, please inform us in advance if you plan to do so, as there may be additional requirements or restrictions depending on your destination.",
       },
       {
         title: "Do you charge a security deposit?",
-        content: "Unavailable",
+        content:
+          "Yes, a security deposit is required at the time of rental. The amount varies depending on the type of vehicle and the rental duration. The deposit will be refunded upon return of the vehicle, provided it is in the same condition as when it was rented.",
       },
       {
         title: "Is there a smoking fee?",
-        content: "Unavailable",
+        content:
+          "Yes, all our vehicles are non-smoking. If a vehicle is returned with evidence of smoking, a cleaning fee will be charged to remove odors and stains.",
+      },
+      {
+        title: "What documents do I need to rent a car?",
+        content:
+          "You will need a valid driver's license and a credit or debit card. International visitors may also need an International Driving Permit (IDP).",
+      },
+      {
+        title: "Can I add an additional driver?",
+        content:
+          "Yes, you can add additional drivers to your rental agreement. All additional drivers must meet the same age and license requirements as the primary driver, and there may be an additional fee.",
       },
     ],
   }),
