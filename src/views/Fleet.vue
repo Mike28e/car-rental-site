@@ -64,7 +64,7 @@
             <v-row>
               <v-col class="my-0">
                 <v-card-subtitle
-                  class="mx-0 px-0 pb-6 font-weight-normal blue--text text--darken-2"
+                  class="mx-0 px-0 pb-6 font-weight-normal"
                   style="font-size: 24px !important; word-break: break-word"
                 >
                   Reserve
@@ -73,7 +73,7 @@
                   <v-col cols="12">
                     <v-btn
                       tile
-                      class="my-1 white blue-grey--text text--darken-2"
+                      class="my-1 white--text blue darken-2"
                       :href="selectedVehicle.turoUrl"
                       target="_blank"
                       >Book on Turo</v-btn
