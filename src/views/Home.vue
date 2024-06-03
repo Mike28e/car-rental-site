@@ -24,7 +24,11 @@
             >
               <v-card-title
                 class="display-2 font-weight-thin pb-0 px-0 hide-on-phone"
-                style="line-height: 1.2; word-break: break-word"
+                style="
+                  line-height: 1.2 !important;
+                  word-break: break-word;
+                  font-weight: 250 !important;
+                "
               >
                 Looking to Rent a Car?
                 <!-- <br />Send a Request -->
