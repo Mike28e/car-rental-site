@@ -10,30 +10,66 @@
     <v-main>
       <router-view />
     </v-main>
-    <v-footer class="d-flex flex-column" dark color="#36454F">
-      <div class="d-flex w-100 align-center px-4">
-        <strong class="pr-8">Get connected with us on social networks!</strong>
-
-        <v-spacer></v-spacer>
-
-        <v-btn
-          v-for="social in socials"
-          :key="social.name"
-          icon
-          small
-          class="mx-4"
-          :href="social.link"
-          target="_blank"
-          ><v-icon>{{ social.icon }}</v-icon></v-btn
-        >
-        <v-btn icon small class="mx-4" href="mailto:DyceRentals@gmail.com"
-          ><v-icon>mdi-email-outline</v-icon></v-btn
-        >
-      </div>
-
-      <div class="px-4 py-2 bg-black text-center w-100">
-        ©{{ new Date().getFullYear() }} — <strong>Dyce Rentals</strong>
-      </div>
+    <v-footer class="d-flex justify-center" dark color="#36454F">
+      <v-card tile flat color="transparent">
+        <template v-if="!isMobile">
+          <v-row>
+            <v-col class="px-2 pt-4 pb-0" cols="6">
+              <strong class=""
+                >Get connected with us on social networks!</strong
+              >
+            </v-col>
+            <v-col class="px-2 pt-4 pb-0 d-flex justify-center" cols="6">
+              <v-btn
+                v-for="social in socials"
+                :key="social.name"
+                icon
+                small
+                class="mx-4"
+                :href="social.link"
+                target="_blank"
+                ><v-icon>{{ social.icon }}</v-icon></v-btn
+              >
+              <v-btn icon small class="mx-4" href="mailto:DyceRentals@gmail.com"
+                ><v-icon>mdi-email-outline</v-icon></v-btn
+              >
+            </v-col>
+          </v-row>
+        </template>
+        <template v-else>
+          <v-row>
+            <v-col class="px-4 pt-4 pb-2 d-flex justify-center">
+              <strong class=""
+                >Get connected with us on social networks!</strong
+              >
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col class="px-4 pt-1 d-flex justify-center">
+              <v-btn
+                v-for="social in socials"
+                :key="social.name"
+                icon
+                small
+                class="mx-4"
+                :href="social.link"
+                target="_blank"
+                ><v-icon>{{ social.icon }}</v-icon></v-btn
+              >
+              <v-btn icon small class="mx-4" href="mailto:DyceRentals@gmail.com"
+                ><v-icon>mdi-email-outline</v-icon></v-btn
+              >
+            </v-col>
+          </v-row>
+        </template>
+        <v-row>
+          <v-col class="px-4" cols="12">
+            <div class="px-4 py-2 bg-black text-center w-100">
+              ©{{ new Date().getFullYear() }} — <strong>Dyce Rentals</strong>
+            </div>
+          </v-col>
+        </v-row>
+      </v-card>
     </v-footer>
   </v-app>
 </template>

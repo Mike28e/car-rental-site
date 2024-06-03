@@ -2,7 +2,11 @@
   <div>
     <v-custom-app-bar :inverted-scroll="false"></v-custom-app-bar>
 
-    <v-card tile flat :class="isMobile ? 'mx-0 px-4 py-6' : 'mx-8 px-8 py-6'">
+    <v-card
+      tile
+      flat
+      :class="isMobile ? 'mx-0 pl-2 pr-4 py-6' : 'mx-8 px-8 py-6'"
+    >
       <v-row>
         <v-col cols="12" md="7">
           <v-skeleton-loader class="mx-auto" type="card, image">
