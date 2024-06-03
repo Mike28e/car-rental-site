@@ -31,6 +31,7 @@
                     font-size: 42px !important;
                     font-weight: 300 !important;
                     line-height: 1.2em !important;
+                    word-break: break-word !important;
                   "
                 >
                   {{ selectedPost.name }}
