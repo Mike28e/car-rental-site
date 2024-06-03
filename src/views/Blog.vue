@@ -7,74 +7,97 @@
       flat
       :class="isMobile ? 'mx-0 px-4 py-6' : 'mx-12 px-12 mt-12 pt-12 pb-6'"
     >
-      <v-row v-if="searchedText.length > 0">
-        <v-col>
-          <v-card
-            tile
-            flat
-            class="mx-0 px-0 black--text text--lighten-4"
-            style="font-size: 22px !important; font-weight: 350 !important"
-            >Search results for "<span class="purple--text">{{
-              searchedText
-            }}</span
-            >"</v-card
-          >
-        </v-col>
-      </v-row>
+      <template v-if="searchedText.length > 0">
+        <v-row>
+          <v-col class="py-2">
+            <v-card
+              tile
+              flat
+              class="mx-0 px-0 black--text text--lighten-4"
+              style="font-size: 22px !important; font-weight: 350 !important"
+              >Search results for "<span class="purple--text">{{
+                searchedText
+              }}</span
+              >"</v-card
+            >
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col class="py-2">
+            <v-btn
+              tile
+              class="mt-0 pt-0 mb-4 px-6 grey--text text--darken-3"
+              @click="clearFilter"
+              ><v-icon class="pr-1" small>mdi-close</v-icon>Clear Search
+            </v-btn>
+          </v-col>
+        </v-row>
+      </template>
       <v-row>
         <v-col cols="12" md="8">
           <v-row v-for="(post, idx) in visiblePosts" :key="post.name">
             <v-col>
               <v-card tile flat class="mx-0 px-0 mb-5">
-                <v-card-title
-                  class="mx-0 px-0"
-                  style="
-                    font-size: 42px !important;
-                    font-weight: 300 !important;
-                  "
-                >
-                  {{ post.name }}
-                </v-card-title>
-                <v-card-subtitle
-                  class="mx-0 px-0 py-4 yellow--text text--darken-4"
-                >
-                  {{ post.dateCreated }} /
-                  <v-chip
-                    outlined
-                    label
-                    x-small
-                    v-for="tag in post.tags"
-                    :key="tag"
-                    class="mr-1 mb-1 px-1 py-0 purple--text purple"
-                    >{{ tag }}</v-chip
-                  >
-                </v-card-subtitle>
-                <v-img
-                  :src="post.image"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                  max-height="500px"
-                >
-                </v-img>
-                <v-card-text
-                  class="mx-0 px-0 font-weight-normal"
-                  style="
-                    font-size: 18px !important;
-                    font-weight: 400 !important;
-                    line-height: 1.5em !important;
-                  "
-                >
-                  {{ post.description }}
-                </v-card-text>
-                <!-- <v-card-text class="mx-0 px-0 d-flex justify-end"> -->
-                <v-btn
-                  large
-                  tile
-                  class="mt-1 mb-4 mr-2 px-12 blue-grey--text text--darken-2"
-                  color=""
-                  ><v-icon class="pr-1">mdi-eye-outline</v-icon> Discover</v-btn
-                >
-                <!-- </v-card-text> -->
+                <v-row>
+                  <v-col cols="4" class="pt-10">
+                    <v-img
+                      :src="post.image"
+                      aspect-ratio="1"
+                      class="grey lighten-2"
+                      max-height="500px"
+                    >
+                    </v-img>
+                  </v-col>
+                  <v-col cols="8">
+                    <v-card-title
+                      class="mx-0 px-0"
+                      style="
+                        font-size: 42px !important;
+                        font-weight: 300 !important;
+                        line-height: 1.2em !important;
+                        word-break: break-word !important;
+                      "
+                    >
+                      {{ post.name }}
+                    </v-card-title>
+                    <v-card-subtitle
+                      class="mx-0 px-0 py-4 yellow--text text--darken-4"
+                    >
+                      {{ post.dateCreated }} /
+                      <v-chip
+                        outlined
+                        label
+                        x-small
+                        v-for="tag in post.tags"
+                        :key="tag"
+                        class="mr-1 mb-1 px-1 py-0 purple--text purple"
+                        >{{ tag }}</v-chip
+                      >
+                    </v-card-subtitle>
+
+                    <v-card-text
+                      class="mx-0 px-0 font-weight-normal"
+                      style="
+                        font-size: 18px !important;
+                        font-weight: 400 !important;
+                        line-height: 1.5em !important;
+                      "
+                    >
+                      {{ post.description }}
+                    </v-card-text>
+                    <router-link :to="getBlogPostPageUrl(post.name)">
+                      <v-btn
+                        large
+                        tile
+                        class="mt-1 mb-4 mr-2 px-6 white--text purple darken-2"
+                        >Read more
+                        <v-icon class="pl-1" small
+                          >mdi-arrow-right</v-icon
+                        ></v-btn
+                      >
+                    </router-link>
+                  </v-col>
+                </v-row>
                 <v-divider v-if="idx < visiblePosts.length - 1" class="mt-8" />
               </v-card>
             </v-col>
@@ -83,6 +106,8 @@
             <v-col>
               <v-pagination
                 v-model="page"
+                color="blue-grey lighten-2"
+                class=""
                 :length="Math.ceil(filteredPosts.length / perPage)"
               ></v-pagination>
             </v-col>
@@ -121,37 +146,42 @@
                 tile
                 flat
                 class="mx-0 px-0 mb-4"
-                v-for="post in blogposts"
+                v-for="post in recentPosts"
                 :key="post.name"
               >
-                <v-row class="mt-2">
-                  <v-col cols="5">
-                    <v-img
-                      :src="post.image"
-                      aspect-ratio="1"
-                      class="grey lighten-2"
-                    >
-                    </v-img>
-                  </v-col>
-                  <v-col cols="7" class="pt-0">
-                    <v-card-title
-                      class="mx-0 px-0 pt-0"
-                      style="
-                        font-size: 16px !important;
-                        font-weight: 400 !important;
-                        white-space: nowrap;
-                      "
-                    >
-                      {{ post.name }}
-                    </v-card-title>
-                    <v-card-subtitle
-                      class="mx-0 px-0 py-1 yellow--text text--darken-4"
-                      style="font-size: 12px !important"
-                    >
-                      {{ post.dateCreated }}
-                    </v-card-subtitle>
-                  </v-col>
-                </v-row>
+                <router-link
+                  :to="getBlogPostPageUrl(post.name)"
+                  style="text-decoration: none !important"
+                >
+                  <v-row class="mt-2">
+                    <v-col cols="5">
+                      <v-img
+                        :src="post.image"
+                        aspect-ratio="1"
+                        class="grey lighten-2"
+                      >
+                      </v-img>
+                    </v-col>
+                    <v-col cols="7" class="pt-0">
+                      <v-card-title
+                        class="mx-0 px-0 pt-1"
+                        style="
+                          font-size: 16px !important;
+                          font-weight: 400 !important;
+                          white-space: nowrap;
+                        "
+                      >
+                        {{ post.name }}
+                      </v-card-title>
+                      <v-card-subtitle
+                        class="mx-0 px-0 py-1 yellow--text text--darken-4"
+                        style="font-size: 12px !important"
+                      >
+                        {{ post.dateCreated }}
+                      </v-card-subtitle>
+                    </v-col>
+                  </v-row>
+                </router-link>
               </v-card>
             </v-card-text>
           </v-card>
@@ -227,6 +257,9 @@ export default {
         this.page * this.perPage
       );
     },
+    recentPosts() {
+      return this.blogposts.slice(0, 4);
+    },
   },
   data: () => ({
     blogposts: blogpostsData,
@@ -234,7 +267,7 @@ export default {
     searchText: "",
     searchedText: "",
     page: 1,
-    perPage: 3,
+    perPage: 4,
   }),
   watch: {
     $route: {
@@ -295,6 +328,13 @@ export default {
           p.name.toLowerCase().includes(search)
         );
       }
+    },
+    getBlogPostPageUrl(id) {
+      return `/blog/post/${id}`;
+    },
+    clearFilter() {
+      this.searchText = null;
+      this.setFilterQueryParams();
     },
   },
 };

@@ -14,6 +14,13 @@ export default [
     component: () => import(/* webpackChunkName: "blog" */ "../views/Blog.vue"),
   },
   {
+    path: "/blog/post/:id",
+    name: "blog-post",
+    props: true,
+    component: () =>
+      import(/* webpackChunkName: "blog-post" */ "../views/BlogPost.vue"),
+  },
+  {
     path: "/faq",
     name: "faq",
     props: true,
