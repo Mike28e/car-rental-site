@@ -164,7 +164,7 @@
                     </v-col>
                     <v-col cols="7" class="pt-0">
                       <v-card-title
-                        class="mx-0 px-0 pt-1"
+                        class="mx-0 px-0 pt-1 blue--text darken-2"
                         style="
                           font-size: 16px !important;
                           font-weight: 400 !important;

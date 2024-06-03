@@ -137,7 +137,7 @@
                     </v-col>
                     <v-col cols="7" class="pt-0">
                       <v-card-title
-                        class="mx-0 px-0 pt-0"
+                        class="mx-0 px-0 pt-0 blue--text darken-2"
                         style="
                           font-size: 16px !important;
                           font-weight: 400 !important;
@@ -145,7 +145,7 @@
                           word-break: break-word !important;
                         "
                       >
-                        {{ getShortenedPostName(post.name) }}
+                        {{ post.name }}
                       </v-card-title>
                       <v-card-subtitle
                         class="mx-0 px-0 py-1 yellow--text text--darken-4"
@@ -272,9 +272,9 @@ export default {
         });
       }
     },
-    getShortenedPostName(postName) {
-      return postName.length > 40 ? `${postName.substring(0, 40)}..` : postName;
-    },
+    // getShortenedPostName(postName) {
+    //   return postName.length > 40 ? `${postName.substring(0, 60)}..` : postName;
+    // },
     getBlogPostPageUrl(id) {
       return `/blog/post/${id}`;
     },
