@@ -1,128 +1,125 @@
 <template>
   <div>
     <v-custom-app-bar :inverted-scroll="false"></v-custom-app-bar>
-
-    <v-card
-      tile
-      flat
-      :class="isMobile ? 'mx-0 pl-2 pr-4 py-6' : 'mx-8 px-8 py-6'"
-    >
-      <v-row>
-        <v-col cols="12" md="7">
-          <v-skeleton-loader class="mx-auto" type="card, image">
-            <v-row>
-              <v-col cols="12">
-                <v-img
-                  class="cursor-pointer"
-                  :src="selectedVehicle.images[0]"
-                  v-on:click="openGallery(0)"
-                ></v-img>
-              </v-col>
-            </v-row>
-            <v-row dense>
-              <v-col
-                cols="4"
-                v-for="(image, idx) in selectedVehicle.images.slice(1, 7)"
-                :key="idx"
-              >
-                <v-img
-                  class="cursor-pointer"
-                  :src="image"
-                  v-on:click="openGallery(idx + 1)"
-                ></v-img>
-              </v-col>
-            </v-row>
-          </v-skeleton-loader>
-        </v-col>
-        <v-col cols="12" md="5">
-          <v-card-title
-            class="text-overline"
-            style="font-size: 22px !important; word-break: break-word"
-          >
-            {{ selectedVehicle.name }}
-          </v-card-title>
-          <v-card-text class="body-1">
-            <v-row>
-              <v-col class="ma-0 pa-3">
-                <v-chip
-                  outlined
-                  label
-                  v-for="feature in selectedVehicle.features"
-                  :key="feature"
-                  class="mr-1 mb-1"
-                  >{{ feature }}</v-chip
+    <v-container>
+      <v-card tile flat :class="isMobile ? ' py-6' : 'py-6'">
+        <v-row>
+          <v-col cols="12" md="7">
+            <v-skeleton-loader class="mx-auto" type="card, image">
+              <v-row>
+                <v-col cols="12">
+                  <v-img
+                    class="cursor-pointer"
+                    :src="selectedVehicle.images[0]"
+                    v-on:click="openGallery(0)"
+                  ></v-img>
+                </v-col>
+              </v-row>
+              <v-row dense>
+                <v-col
+                  cols="4"
+                  v-for="(image, idx) in selectedVehicle.images.slice(1, 7)"
+                  :key="idx"
                 >
-              </v-col>
-            </v-row>
-            <v-row v-if="selectedVehicle.extras?.length > 0">
-              <v-col class="mt-8 mb-4">
-                <v-card-subtitle
-                  class="mx-0 px-0 pb-6 font-weight-normal"
-                  style="font-size: 24px !important; word-break: break-word"
-                >
-                  Extras
-                </v-card-subtitle>
-                {{ selectedVehicle.extras }}
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col class="my-0">
-                <v-card-subtitle
-                  class="mx-0 px-0 pb-6 font-weight-normal"
-                  style="font-size: 24px !important; word-break: break-word"
-                >
-                  Reserve
-                </v-card-subtitle>
-                <v-row>
-                  <v-col cols="12">
-                    <v-btn
-                      tile
-                      class="my-1 white--text blue darken-2"
-                      :href="selectedVehicle.turoUrl"
-                      target="_blank"
-                      >Book on Turo</v-btn
-                    >
-                    <v-divider class="mt-4"></v-divider>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-btn
-                      tile
-                      class="my-1 mr-2 py-4 white blue-grey--text text--darken-2"
-                      href=""
-                      target="_blank"
-                      :disabled="true"
-                      >Book Direct</v-btn
-                    >
-                    (Coming Soon)
-                    <v-divider class="mt-4"></v-divider>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-card-title
-            class="mx-3 px-0 mb-2 font-weight-normal grey--text text--darken-2"
-            style="
-              font-size: 26px !important;
-              font-weight: 300 !important;
-              word-break: break-word;
-            "
-          >
-            {{ selectedVehicle.name }} Overview
-          </v-card-title>
-          <v-card-text
-            class="body-1 mx-3 px-0"
-            style="word-break: break-word; white-space: pre-line"
-          >
-            {{ selectedVehicle.overview }}
-          </v-card-text>
-        </v-col>
-      </v-row>
-    </v-card>
+                  <v-img
+                    class="cursor-pointer"
+                    :src="image"
+                    v-on:click="openGallery(idx + 1)"
+                  ></v-img>
+                </v-col>
+              </v-row>
+            </v-skeleton-loader>
+          </v-col>
+          <v-col cols="12" md="5">
+            <v-card-title
+              class="text-overline"
+              style="font-size: 22px !important; word-break: break-word"
+            >
+              {{ selectedVehicle.name }}
+            </v-card-title>
+            <v-card-text class="body-1">
+              <v-row>
+                <v-col class="ma-0 pa-3">
+                  <v-chip
+                    outlined
+                    label
+                    v-for="feature in selectedVehicle.features"
+                    :key="feature"
+                    class="mr-1 mb-1"
+                    >{{ feature }}</v-chip
+                  >
+                </v-col>
+              </v-row>
+              <v-row v-if="selectedVehicle.extras?.length > 0">
+                <v-col class="mt-8 mb-4">
+                  <v-card-subtitle
+                    class="mx-0 px-0 pb-6 font-weight-normal"
+                    style="font-size: 24px !important; word-break: break-word"
+                  >
+                    Extras
+                  </v-card-subtitle>
+                  {{ selectedVehicle.extras }}
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="my-0">
+                  <v-card-subtitle
+                    class="mx-0 px-0 pb-6 font-weight-normal"
+                    style="font-size: 24px !important; word-break: break-word"
+                  >
+                    Reserve
+                  </v-card-subtitle>
+                  <v-row>
+                    <v-col cols="12">
+                      <v-btn
+                        tile
+                        class="my-1 white--text blue darken-2"
+                        :href="selectedVehicle.turoUrl"
+                        target="_blank"
+                        >Book on Turo</v-btn
+                      >
+                      <v-divider class="mt-4"></v-divider>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-btn
+                        tile
+                        class="my-1 mr-2 py-4 white blue-grey--text text--darken-2"
+                        href=""
+                        target="_blank"
+                        :disabled="true"
+                        >Book Direct</v-btn
+                      >
+                      (Coming Soon)
+                      <v-divider class="mt-4"></v-divider>
+                    </v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-card-title
+              class="px-4 mb-2 font-weight-normal grey--text text--darken-2"
+              style="
+                font-size: 26px !important;
+                font-weight: 300 !important;
+                word-break: break-word;
+              "
+            >
+              {{ selectedVehicle.name }} Overview
+            </v-card-title>
+            <v-card-text
+              class="body-1 px-4 px-0"
+              style="word-break: break-word; white-space: pre-line"
+            >
+              {{ selectedVehicle.overview }}
+            </v-card-text>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container>
     <v-vehicle-gallery-dialog
       v-model="vehicleGalleryDialog"
       :title="vehicleGalleryTitle"
