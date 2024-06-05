@@ -12,10 +12,13 @@
         src="../assets/icons8-dice-30.png"
         max-width="28px"
         max-height="28px"
+        :style="
+          textColor == 'white' ? 'filter: invert(1)' : 'filter: invert(0)'
+        "
       ></v-img>
       <v-toolbar-title
         @click="goHome"
-        class="text-overline pl-1 cursor-pointer"
+        :class="`text-overline pl-1 cursor-pointer ${textColor}--text`"
         style="
           white-space: nowrap;
           overflow: visible;
@@ -27,23 +30,20 @@
 
       <span>
         <v-btn
-          v-if="isHome"
           text
           class="subtitle-1 btn-fix"
-          to="#home"
+          to="/#home"
           @click="scrollTo('#home')"
+          active-class=""
         >
-          <span class="mr-2" align="center">Home</span>
-        </v-btn>
-        <v-btn v-else text class="subtitle-1" to="/" active-class="">
-          <span class="mr-2" align="center">Home</span>
+          <span :class="`mr-2 ${textColor}--text`" align="center">Home</span>
         </v-btn>
         <template v-if="isMobile">
           <!-- Show menu for mobile -->
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
               <v-btn v-on="on" text>
-                <v-icon>mdi-menu</v-icon>
+                <v-icon :color="textColor">mdi-menu</v-icon>
               </v-btn>
             </template>
 
@@ -71,7 +71,7 @@
             :to="item.link"
             @click="scrollTo(item.id)"
           >
-            <span class="mr-2">{{ item.title }}</span>
+            <span :class="`mr-2 ${textColor}--text`">{{ item.title }}</span>
           </v-btn>
 
           <v-btn
@@ -82,10 +82,10 @@
             class="mx-1"
             :href="social.link"
             target="_blank"
-            ><v-icon>{{ social.icon }}</v-icon></v-btn
+            ><v-icon :color="textColor">{{ social.icon }}</v-icon></v-btn
           >
           <v-btn icon small class="mx-1" href="mailto:DyceRentals@gmail.com"
-            ><v-icon>mdi-email-outline</v-icon></v-btn
+            ><v-icon :color="textColor">mdi-email-outline</v-icon></v-btn
           >
         </template>
       </span>
@@ -115,6 +115,7 @@ export default {
   props: {
     invertedScroll: { type: Boolean },
     color: { type: String },
+    textColor: { type: String },
     isHome: { type: Boolean },
     isMainApp: { type: Boolean },
   },

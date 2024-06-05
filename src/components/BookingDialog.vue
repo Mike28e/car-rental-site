@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in filteredVehicles" :key="item.name">
+              <tr v-for="item in filteredVehicles" :key="item.id">
                 <td>{{ item.id }}</td>
                 <td class="py-2">
                   <v-btn

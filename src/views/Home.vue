@@ -1,90 +1,63 @@
 <template>
   <div>
     <v-img
-      class="bg-white mt-n16"
-      src="../assets/mainbg2.jpg"
-      cover
-      aspect-ratio=""
-      height="100%"
       max-height="700px"
+      min-height="300px"
+      src="../assets/mainbg2.jpg"
+      class="bg-white mt-n16"
+      width="100%"
     >
-      <v-custom-app-bar
-        :inverted-scroll="false"
-        color="transparent"
-        :isHome="true"
-      ></v-custom-app-bar>
-      <v-container id="#home">
-        <v-row>
-          <v-col>
-            <v-sheet
-              class="d-flex align-end"
-              min-height="200px"
-              color="transparent"
-              elevation="0"
-            >
-              <v-card-title
-                class="display-2 font-weight-thin pb-0 px-0 hide-on-phone"
-                style="
-                  line-height: 1.2 !important;
-                  word-break: break-word;
-                  font-weight: 250 !important;
+      <v-overlay absolute opacity="0.25" class="child-flex" style="">
+        <v-custom-app-bar
+          :inverted-scroll="false"
+          color="transparent"
+          textColor="white"
+          :isHome="true"
+        ></v-custom-app-bar>
+        <v-card flat tile color="transparent" class="">
+          <v-container class="tight">
+            <v-row id="#home">
+              <v-col class="d-flex justify-end">
+                <v-card-title
+                  class="pb-0 px-0 hide-on-phone white--text display-2 text-right overline"
+                  style="
+                    font-size: 36px !important;
+                    line-height: 1.2 !important;
+                    word-break: break-word;
+                    font-weight: 250 !important;
+                    letter-spacing: 0;
+                  "
+                >
+                  Luxury & Economy <br />Car Rentals
+                  <!-- <br />Send a Request -->
+                </v-card-title>
+              </v-col>
+            </v-row>
+            <v-row
+              ><v-col
+                :class="
+                  isMobile ? 'd-flex justify-center' : 'd-flex justify-end'
                 "
               >
-                Looking to Rent a Car?
-                <!-- <br />Send a Request -->
-              </v-card-title>
-            </v-sheet>
-            <!-- <v-sheet color="transparent" elevation="0">
-              <v-card-subtitle
-                class="display-2 text-subtitle-2 grey--text text--lighten-2 px-0"
-              >
-                Complete the form below and we'll contact you as soon as
-                possible
-              </v-card-subtitle>
-            </v-sheet> -->
-          </v-col>
-        </v-row>
-        <v-row
-          ><v-col
-            class="d-flex justify-center justify-sm-center justify-md-start justify-lg-start"
-          >
-            <v-btn
-              large
-              class="my-4 mr-8 blue-grey--text text--darken-2"
-              color=""
-              @click="openVehicleDialog(null)"
-              >Book Now</v-btn
-            >
-            <v-btn
-              large
-              class="my-4 blue-grey--text text--darken-2"
-              @click="scrollTo('#contact')"
-              >Contact Us</v-btn
-            >
-          </v-col>
-        </v-row>
-
-        <!-- <v-row>
-          <v-col sm="2" cols="12">
-            <v-text-field
-              label="Choose Location"
-              persistent-hint
-            ></v-text-field>
-          </v-col>
-          <v-col sm="2" cols="12">
-            <v-text-field label="Pick-up Date" persistent-hint></v-text-field>
-          </v-col>
-          <v-col sm="2" cols="12">
-            <v-text-field label="Pick-up Time" persistent-hint></v-text-field>
-          </v-col>
-          <v-col sm="2" cols="12">
-            <v-text-field label="Drop-off Date" persistent-hint></v-text-field>
-          </v-col>
-          <v-col sm="2" cols="12">
-            <v-btn large outlined><v-icon>mdi-plus</v-icon>Send</v-btn>
-          </v-col>
-        </v-row> -->
-      </v-container>
+                <v-btn
+                  large
+                  class="my-4 mr-8 blue-grey--text text--darken-2"
+                  color="white"
+                  @click="openVehicleDialog(null)"
+                  >Book Now</v-btn
+                >
+                <v-btn
+                  large
+                  class="my-4 blue-grey--text text--darken-2"
+                  color="white"
+                  @click="scrollTo('#contact')"
+                  >Contact Us</v-btn
+                >
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-overlay>
     </v-img>
 
     <v-sheet height="100%" color="#37474F" id="#rentals" class="py-6 parallax">
@@ -417,6 +390,9 @@ export default {
     // googleUrl() {
     //   return `https://www.google.com/maps/embed/v1/search?q=lanier%20luxury%20rentals&key=${process.env.VUE_APP_KEY}&center=36.107375,-115.174747&zoom=17`;
     // },
+    isMobile() {
+      return this.$vuetify.breakpoint.width < 769;
+    },
   },
   data: () => ({
     bookDialog: false,
