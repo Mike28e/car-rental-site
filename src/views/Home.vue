@@ -9,32 +9,40 @@
     >
       <v-overlay
         absolute
-        opacity="0.25"
+        opacity="0.15"
         class="child-flex align-start pt-16"
         style=""
       >
         <v-custom-app-bar
           :inverted-scroll="false"
-          color="transparent"
-          textColor="white"
+          color="rgb(255, 255, 255, 0.1)"
+          textColor="black"
           :isHome="true"
         ></v-custom-app-bar>
         <v-card flat tile color="transparent" class="pt-16 pb-16">
           <v-container class="tight">
             <v-row id="#home">
               <v-col class="d-flex justify-end">
-                <v-card-title
-                  class="pb-0 px-0 hide-on-phone white--text display-2 text-right overline"
-                  style="
-                    font-size: 2.5em !important;
-                    line-height: 1.2 !important;
-                    word-break: break-word;
-                    font-weight: 250 !important;
-                  "
+                <v-card
+                  tile
+                  flat
+                  color="rgb(255, 255, 255, 0.0)"
+                  class="px-4 py-2"
                 >
-                  Luxury & Economy <br />Car Rentals
-                  <!-- <br />Send a Request -->
-                </v-card-title>
+                  <v-card-title
+                    class="pb-0 px-0 hide-on-phone white--text display-2 text-right overline"
+                    style="
+                      font-size: 2.5em !important;
+                      line-height: 1.2 !important;
+                      word-break: break-word;
+                      font-weight: 250 !important;
+                      text-shadow: 1px 1px 2px black;
+                    "
+                  >
+                    Luxury & Economy <br />Car Rentals
+                    <!-- <br />Send a Request -->
+                  </v-card-title>
+                </v-card>
               </v-col>
             </v-row>
             <v-row
@@ -45,6 +53,7 @@
               >
                 <v-btn
                   large
+                  tile
                   class="my-4 mr-8 blue-grey--text text--darken-2"
                   color="white"
                   @click="openVehicleDialog(null)"
@@ -52,6 +61,7 @@
                 >
                 <v-btn
                   large
+                  tile
                   class="my-4 blue-grey--text text--darken-2"
                   color="white"
                   @click="scrollTo('#contact')"
