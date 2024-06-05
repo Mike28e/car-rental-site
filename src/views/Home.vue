@@ -441,19 +441,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.parallax {
-  /* The image used */
-  background-image: url("https://images.unsplash.com/photo-1619252584172-a83a949b6efd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-
-  /* Set a specific height */
-  min-height: 500px;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .background1 {
   /* The image used */
   background-image: url("../assets/pexels-pixabay-3.jpg");
