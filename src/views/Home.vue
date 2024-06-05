@@ -7,14 +7,19 @@
       class="bg-white mt-n16"
       width="100%"
     >
-      <v-overlay absolute opacity="0.25" class="child-flex pt-16" style="">
+      <v-overlay
+        absolute
+        opacity="0.25"
+        class="child-flex align-start pt-16"
+        style=""
+      >
         <v-custom-app-bar
           :inverted-scroll="false"
           color="transparent"
           textColor="white"
           :isHome="true"
         ></v-custom-app-bar>
-        <v-card flat tile color="transparent" class="pb-16">
+        <v-card flat tile color="transparent" class="pt-16 pb-16">
           <v-container class="tight">
             <v-row id="#home">
               <v-col class="d-flex justify-end">

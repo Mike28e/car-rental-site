@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-custom-app-bar :inverted-scroll="false"></v-custom-app-bar>
-    <v-container>
-      <v-card tile flat :class="isMobile ? ' py-6' : 'py-6'">
+    <v-container class="">
+      <v-card tile flat :class="isMobile ? ' py-6' : 'py-6 my-8'">
         <v-row>
           <v-col cols="12" md="7">
             <v-skeleton-loader class="mx-auto" type="card, image">
