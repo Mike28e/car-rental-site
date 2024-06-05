@@ -7,25 +7,24 @@
       class="bg-white mt-n16"
       width="100%"
     >
-      <v-overlay absolute opacity="0.25" class="child-flex" style="">
+      <v-overlay absolute opacity="0.25" class="child-flex pt-16" style="">
         <v-custom-app-bar
           :inverted-scroll="false"
           color="transparent"
           textColor="white"
           :isHome="true"
         ></v-custom-app-bar>
-        <v-card flat tile color="transparent" class="">
+        <v-card flat tile color="transparent" class="pb-16">
           <v-container class="tight">
             <v-row id="#home">
               <v-col class="d-flex justify-end">
                 <v-card-title
                   class="pb-0 px-0 hide-on-phone white--text display-2 text-right overline"
                   style="
-                    font-size: 36px !important;
+                    font-size: 2.5em !important;
                     line-height: 1.2 !important;
                     word-break: break-word;
                     font-weight: 250 !important;
-                    letter-spacing: 0;
                   "
                 >
                   Luxury & Economy <br />Car Rentals
