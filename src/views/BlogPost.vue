@@ -76,7 +76,6 @@
                       class="grey lighten-2"
                       max-height="250px"
                     >
-                    
                     </v-img>
                   </v-sheet>
                 </v-card>
