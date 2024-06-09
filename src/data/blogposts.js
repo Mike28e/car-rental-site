@@ -1,5 +1,176 @@
 const data = [
   {
+    image: require("@/assets/lamborghini_huracan/Huracan_Gallery1.jpg"),
+    name: "How to Drive our Lamborghini Huracan",
+    dateCreated: "JUNE 1 2024",
+    tags: ["CARS", "HOW-TO"],
+    description:
+      `Driving a Lamborghini Huracan can be an exhilarating experience. 
+      Clicking this post will go through some of the quirks and basics on operating the vehicle. 
+      Feel free to reach out for any questions we may have not covered here.`,
+    sections: [
+      {
+        body: `<br/>
+        <p>
+          The video below will cover how to put the vehicle into Park, Reverse, Neutral, and Drive. 
+          It will also cover putting the car into Manual Mode, 
+          how to know if you're in Automatic or Manual, and how to raise the front of the vehicle for 
+          low obstacles to avoid scraping the front.
+        </p>
+
+        <p>
+          Or as mentioned, you can reference the guide below for some other specific details about the vehicle.
+        </p>
+        <div style="display:flex; justify-content:center;">
+          <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/z_pXBTGabQA?autoplay=0&mute=0&controls=1&start=31&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; 
+            autoplay; 
+            clipboard-write; 
+            encrypted-media; 
+            gyroscope; 
+            picture-in-picture; 
+            web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <hr style="
+          margin: 10px 0;
+          border: 1px solid black;
+        ">
+
+        <br />
+
+        <h3>1. Starting the Vehicle and Shifting Gears</h3>
+        
+        <br />
+        
+        <h4> Start Button </h4>
+        
+        <p>
+          The Start Button is located in the center of the vehicle. 
+          Press your foot onto the brake and lift up the panel above the button, and press the button to start the vehicle.
+        </p>
+
+        <h4>Park Gear</h4>
+        <p>
+          To shift the vehicle into Park, ensure your foot is on the brake and press the P 
+          button located under the Reverse Gear.
+        </p>
+
+        <h4>Reverse Gear</h4>
+        <p>
+          While having your foot on the brake and referencing the Reverse Gear in the picture above, 
+          you will lift the gear up towards you to shift the vehicle into reverse. 
+        
+        </p>
+
+        <h4>Manual Mode</h4>
+	      <p>
+          When put into Drive, the car should be in Automatic mode. You'll be able to confirm this by seeing an "A" present next to the gear number when in Drive. To shift the car into Manual Mode, you can either press one of the paddle shifters down, or press the M button located under the Park Gear Button, and that will shift the car into Manual Mode. 
+
+	        To shift back into Automatic, press the M Button again.
+        </p>
+
+        <hr style="
+          margin: 10px 0;
+          border: 1px solid black;
+        ">
+        
+        <br />
+
+        <h3>2. The Steering Wheel</h3>
+        
+        <br />
+
+        <p>
+          As shown in the picture, the buttons to the left control the turn signal/blinkers. 
+          Pressing the button left will turn the left turn signal on, and pressing it to the 
+          right will turn the right turn signal on. Pressing the button in will cancel the turn signal altogether.
+        </p>
+
+        <p>
+          As for the windshield wiper button to the right, you can turn the wipers on/increase the speed by 
+          pressing the button right, or decrease it by pressing it to the left.
+        </p>
+
+        <hr style="
+          margin: 10px 0;
+          border: 1px solid black;
+        ">
+
+        <br />
+
+        <h3>3. The Center Console Switches</h3>
+        
+        <br />
+
+        <p>
+          There are seven switches in the middle console of the Huracan. From left to right:
+        </p>
+        <ol>
+            <li>Driver side window control</li>
+            <li>To avoid scraping the front from low obstacles, 
+            pull this switch up to lift the front part of the vehicle up. 
+            There will be a car lift symbol flashing on the dash while in progress, 
+            then will turn solid when complete. Vehicle will automatically lower once reaching 45MPH.</li>
+            <li>ESC (Electronic Stability Control) Off - 
+            Will turn off traction control. We HIGHLY recommend you leave this on, and do not turn it off.</li>
+            <li>Hazard Lights On/Off</li>
+            <li>Turn Parking Sensors Off (on by default)</li>
+            <li>Auto Start/Stop On/Off</li>
+            <li>Passenger side window control</li>
+        </ol>
+        
+        <hr style="
+          margin: 10px 0;
+          border: 1px solid black;
+        ">
+
+        <br />
+
+        <h3>4. Driving Modes</h3>
+        
+        <br />
+
+        <p>
+          There are three drive modes in a Huracan, all that offer distinct 
+          characteristics in terms of performance, handling, and responsiveness. Here's a breakdown of each mode:
+        </p>
+
+        <h4>Strada:</h4>
+        
+        <p>
+          Strada is the default driving mode and is designed for everyday road use and comfort. 
+          In this mode, the car's suspension is set to its most comfortable setting, offering a smoother ride.
+        </p>
+
+        <h4>Sport:</h4>
+        
+        <p>
+          Sport mode is a step up in terms of performance and engagement compared to Strada. 
+          The suspension stiffens slightly, enhancing the car's responsiveness and improving handling during spirited driving. 
+          The exhaust note also becomes more pronounced, emitting a sportier sound that enhances the driving soundtrack.
+        </p>
+
+        <h4>Corsa:</h4>
+        
+        <p>
+          Corsa mode is a manual only mode that is the most aggressive and performance-focused setting available in a 
+          Lamborghini Huracan. The suspension is further stiffened, providing maximum responsiveness and precise handling. 
+          The exhaust system opens up fully, producing a loud and exhilarating sound that is characteristic of a Lamborghini.
+        </p>
+
+        <br />
+        `,
+      },
+    ],
+  },
+  {
     image: require("@/assets/redrock1.jpg"),
     name: "Discover the Majestic Beauty of Red Rock Canyon",
     dateCreated: "JUNE 1 2024",

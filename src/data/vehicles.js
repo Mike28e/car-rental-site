@@ -25,7 +25,7 @@ const data = [
   },
   {
     id: "Lamborghini Huracan",
-    image: require("@/assets/lambo1.jpg"),
+    image: require("@/assets/lambo-main.jpg"),
     name: "Lamborghini Huracan",
     specs: [],
     price: "999",
