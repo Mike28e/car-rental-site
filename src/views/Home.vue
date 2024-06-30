@@ -3,7 +3,7 @@
     <v-img
       max-height="700px"
       min-height="300px"
-      src="../assets/mainbg2.jpg"
+      src="../assets/backgrounds/mainbg2.jpg"
       class="bg-white mt-n16"
       width="100%"
     >
@@ -176,7 +176,7 @@
     <v-sheet height="100%" class="pa-0 ma-0" color="#37474F">
       <v-img
         class="pa-0 ma-0"
-        src="../assets/banner2.jpg"
+        src="../assets/banners/banner2.jpg"
         cover
         aspect-ratio="16/9"
         height="350px"
@@ -195,53 +195,67 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-sheet elevation="0" color="transparent" class="pb-6">
-              <v-row>
-                <v-col
-                  v-for="hotspot in vegasHotSpots"
-                  :key="hotspot.name"
-                  class="d-flex child-flex justify-center align-center"
-                  cols="12"
-                  md="6"
-                  sm="12"
+            <v-sheet elevation="0" color="transparent" class="pb-4">
+              <v-carousel
+                v-model="hotspotModel"
+                hide-delimiter-background
+                class=""
+                height="100%"
+                max-height="600px"
+              >
+                <v-carousel-item
+                  v-for="(hotspotSection, idx) in vegasHotSpotCatalog"
+                  :key="idx"
+                  class=""
                 >
-                  <v-card
-                    class=""
-                    style="background-color: transparent; overflow: hidden"
-                    max-height="100%"
-                    max-width="500px"
-                  >
-                    <v-img
-                      :src="hotspot.image"
-                      aspect-ratio="1"
-                      class="grey lighten-2"
-                      max-height="400px"
-                      max-width="500px"
+                  <v-row class="px-12">
+                    <v-col
+                      v-for="hotspot in hotspotSection"
+                      :key="hotspot.name"
+                      class="d-flex child-flex justify-center align-center"
+                      cols="12"
+                      md="6"
+                      sm="12"
                     >
-                      <template v-slot:placeholder>
-                        <v-row
-                          class="fill-height ma-0"
-                          align="center"
-                          justify="center"
+                      <v-card
+                        class="mb-12"
+                        style="background-color: transparent; overflow: hidden"
+                        max-height="100%"
+                        max-width="500px"
+                      >
+                        <v-img
+                          :src="hotspot.image"
+                          aspect-ratio="1"
+                          class="grey lighten-2"
+                          max-height="400px"
+                          max-width="500px"
                         >
-                          <v-progress-circular
-                            indeterminate
-                            color="grey lighten-5"
-                          ></v-progress-circular>
-                        </v-row>
-                      </template>
-                    </v-img>
-                    <v-card-title
-                      class="text-overline pb-0 mb-0"
-                      style="word-break: break-word"
-                      >{{ hotspot.name }}
-                    </v-card-title>
-                    <v-card-text class="">
-                      {{ hotspot.description }}
-                    </v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
+                          <template v-slot:placeholder>
+                            <v-row
+                              class="fill-height ma-0"
+                              align="center"
+                              justify="center"
+                            >
+                              <v-progress-circular
+                                indeterminate
+                                color="grey lighten-5"
+                              ></v-progress-circular>
+                            </v-row>
+                          </template>
+                        </v-img>
+                        <v-card-title
+                          class="text-overline pb-0 mb-0"
+                          style="word-break: break-word"
+                          >{{ hotspot.name }}
+                        </v-card-title>
+                        <v-card-text class="">
+                          {{ hotspot.description }}
+                        </v-card-text>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-carousel-item>
+              </v-carousel>
             </v-sheet>
           </v-col>
         </v-row>
@@ -365,7 +379,7 @@ export default {
           "Discover the thrill of the Las Vegas strip in style with Dyce Rentals. Cruise the city in luxury or explore the desert in comfort. Book now and experience Las Vegas like never before!",
       },
     ],
-    link: [{ rel: "icon", href: "../assets/icons8-dice-90.png" }],
+    link: [{ rel: "icon", href: "../assets/logos/icons8-dice-90.png" }],
     htmlAttrs: {
       lang: "en",
     },
@@ -407,6 +421,14 @@ export default {
     isMobile() {
       return this.$vuetify.breakpoint.width < 769;
     },
+    vegasHotSpotCatalog() {
+      const result = [];
+      const size = this.isMobile ? 1 : 2;
+      this.vegasHotSpots.forEach((_, i) => {
+        if (i % size === 0) result.push(this.vegasHotSpots.slice(i, i + size));
+      });
+      return result;
+    },
   },
   data: () => ({
     bookDialog: false,
@@ -416,6 +438,7 @@ export default {
     vehicleGalleryImages: [],
     vehicles: vehicleData,
     vegasHotSpots: hotspotData,
+    hotspotModel: 0,
     socials: socialData,
   }),
   methods: {
@@ -453,7 +476,7 @@ export default {
 <style lang="scss" scoped>
 .background1 {
   /* The image used */
-  background-image: url("../assets/pexels-pixabay-3.jpg");
+  background-image: url("../assets/backgrounds/pexels-pixabay-3.jpg");
 
   /* Set a specific height */
   min-height: 500px;

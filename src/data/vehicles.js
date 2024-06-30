@@ -1,7 +1,7 @@
 const data = [
   {
     id: "Porsche 911",
-    image: require("@/assets/porsche3.jpg"),
+    image: require("@/assets/porsche_911/porsche3.jpg"),
     name: "Porsche 911 (992)",
     specs: [],
     price: "399",
@@ -25,7 +25,7 @@ const data = [
   },
   {
     id: "Lamborghini Huracan",
-    image: require("@/assets/lambo-main.jpg"),
+    image: require("@/assets/lamborghini_huracan/lambo-main.jpg"),
     name: "Lamborghini Huracan",
     specs: [],
     price: "999",
@@ -50,12 +50,12 @@ const data = [
   },
   {
     id: "Dodge Charger SRT Hellcat",
-    image: require("@/assets/charger1.jpg"),
+    image: require("@/assets/dodge_charger/charger1.jpg"),
     name: "Dodge Charger SRT Hellcat",
     specs: [],
     price: "349",
     images: [
-      require("../assets/charger1.jpg"),
+      require("../assets/dodge_charger/charger1.jpg"),
       require("../assets/dodge_charger/Charger_Gallery1.jpg"),
       require("../assets/dodge_charger/Charger_Gallery2.jpg"),
       require("../assets/dodge_charger/Charger_Gallery3.jpg"),
@@ -74,12 +74,12 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
   },
   {
     id: "BMW i8 White",
-    image: require("@/assets/whitei8-1.jpg"),
+    image: require("@/assets/bmw_i8_white/whitei8-1.jpg"),
     name: "BMW i8",
     specs: [],
     price: "299",
     images: [
-      require("../assets/whitei8-1.jpg"),
+      require("../assets/bmw_i8_white/whitei8-1.jpg"),
       require("../assets/bmw_i8_white/BmwWhite_Gallery1.jpg"),
       require("../assets/bmw_i8_white/BmwWhite_Gallery2.jpg"),
       require("../assets/bmw_i8_white/BmwWhite_Gallery3.jpg"),
@@ -99,7 +99,7 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
   },
   {
     id: "BMW i8 Grey",
-    image: require("@/assets/greyi8-1.jpg"),
+    image: require("@/assets/bmw_i8_grey/greyi8-1.jpg"),
     name: "BMW i8",
     specs: [],
     price: "299",
@@ -123,12 +123,12 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
   },
   {
     id: "Mitsubishi Outlander",
-    image: require("@/assets/mitsubishi1.jpg"),
+    image: require("@/assets/mitsubishi_outlander/mitsubishi1.jpg"),
     name: "Mitsubishi Outlander",
     specs: [],
     price: "99",
     images: [
-      require("../assets/mitsubishi1.jpg"),
+      require("../assets/mitsubishi_outlander/mitsubishi1.jpg"),
       require("../assets/mitsubishi_outlander/Outlander_Gallery1.jpg"),
       require("../assets/mitsubishi_outlander/Outlander_Gallery2.jpg"),
       require("../assets/mitsubishi_outlander/Outlander_Gallery3.jpg"),
@@ -146,12 +146,12 @@ The real magic of the Hellcat lies in its performance. With is adaptive suspensi
   },
   {
     id: "Jeep Grand Cherokee",
-    image: require("@/assets/jeep1.jpg"),
+    image: require("@/assets/jeep_grand_cherokee/jeep1.jpg"),
     name: "Jeep Grand Cherokee",
     specs: [],
     price: "99",
     images: [
-      require("../assets/jeep1.jpg"),
+      require("../assets/jeep_grand_cherokee/jeep1.jpg"),
       require("../assets/jeep_grand_cherokee/Jeep_Gallery1.jpg"),
       require("../assets/jeep_grand_cherokee/Jeep_Gallery2.jpg"),
       require("../assets/jeep_grand_cherokee/Jeep_Gallery3.jpg"),

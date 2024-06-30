@@ -1,11 +1,10 @@
 const data = [
   {
-    image: require("@/assets/lamborghini_huracan/Huracan_Gallery1.jpg"),
+    image: require("@/assets/blog/Huracan_Gallery1.jpg"),
     name: "How to Drive our Lamborghini Huracan",
     dateCreated: "JUNE 1 2024",
     tags: ["CARS", "HOW-TO"],
-    description:
-      `Driving a Lamborghini Huracan can be an exhilarating experience. 
+    description: `Driving a Lamborghini Huracan can be an exhilarating experience. 
       Clicking this post will go through some of the quirks and basics on operating the vehicle. 
       Feel free to reach out for any questions we may have not covered here.`,
     sections: [
@@ -171,7 +170,7 @@ const data = [
     ],
   },
   {
-    image: require("@/assets/redrock1.jpg"),
+    image: require("@/assets/blog/redrock1.jpg"),
     name: "Discover the Majestic Beauty of Red Rock Canyon",
     dateCreated: "JUNE 1 2024",
     tags: ["PLACES", "TRAILS"],
@@ -227,12 +226,12 @@ const data = [
           </ul><br /><br />
         <h3>Conclusion</h3><br />
         Whether you're a nature lover, an adventure seeker, or simply looking for a peaceful escape from the city, Red Rock Canyon National Conservation Area offers something for everyone. Its stunning landscapes, diverse outdoor activities, and serene environment make it a true gem just a stone's throw away from Las Vegas. Don't miss the opportunity to explore this natural wonder on your next visit to the area.`,
-        // image: require("@/assets/redrock1.jpg"),
+        // image: require("@/assets/blog/redrock1.jpg"),
       },
     ],
   },
   {
-    image: require("@/assets/hooverdam1.jpg"),
+    image: require("@/assets/blog/hooverdam1.jpg"),
     name: "Explore the Engineering Marvel of Hoover Dam",
     dateCreated: "JUNE 1 2024",
     tags: ["PLACES", "TRAILS"],
@@ -283,7 +282,7 @@ const data = [
     ],
   },
   {
-    image: require("@/assets/valleyoffire1.jpg"),
+    image: require("@/assets/blog/valleyoffire1.jpg"),
     name: "Discover the Natural Wonders of Valley of Fire State Park",
     dateCreated: "JUNE 1 2024",
     tags: ["PLACES", "TRAILS"],
@@ -342,7 +341,7 @@ const data = [
     ],
   },
   {
-    image: require("@/assets/lakemead1.jpg"),
+    image: require("@/assets/blog/lakemead1.jpg"),
     name: "Explore the Scenic Beauty of Lake Mead",
     dateCreated: "JUNE 1 2024",
     tags: ["PLACES", "TRAILS"],
@@ -397,12 +396,12 @@ const data = [
     ],
   },
   // {
-  //   image: require("@/assets/lvmotorspeedway1.jpg"),
+  //   image: require("@/assets/blog/lvmotorspeedway1.jpg"),
   //   name: "Las Vegas Motor Speedway",
   //   description: "",
   // },
   // {
-  //   image: require("@/assets/neonmuseum1.jpg"),
+  //   image: require("@/assets/blog/neonmuseum1.jpg"),
   //   name: "Neon Museum",
   //   description: "",
   // },

@@ -205,7 +205,7 @@ export default {
         content: "",
       },
     ],
-    link: [{ rel: "icon", href: "../assets/icons8-dice-90.png" }],
+    link: [{ rel: "icon", href: "../assets/logos/icons8-dice-90.png" }],
     htmlAttrs: {
       lang: "en",
     },

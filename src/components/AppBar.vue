@@ -9,7 +9,7 @@
       <v-img
         @click="goHome"
         class="cursor-pointer"
-        src="../assets/icons8-dice-30.png"
+        src="../assets/logos/icons8-dice-30.png"
         max-width="28px"
         max-height="28px"
         :style="
